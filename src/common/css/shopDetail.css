@@ -1,0 +1,539 @@
+#app {
+  font: 14px/150% "Microsoft YaHei","\5b8b\4f53";
+  background: #fbfbfb;
+}
+#app .shopDetail {
+  padding-top: 20px;
+}
+#app .shopDetail h2 {
+  width: 1200px;
+  height: 80px;
+  line-height: 80px;
+  background: #fff;
+  position: relative;
+}
+#app .shopDetail h2 span {
+  font-size: 14px;
+  color: #898989;
+  padding-left: 20px;
+}
+#app .shopDetail h2 span a:hover {
+  color: #224E8F;
+}
+#app .shopDetail h2 .search {
+  overflow: hidden;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 615px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  border: 1px solid #ddd;
+}
+#app .shopDetail h2 .search input {
+  float: left;
+  width: 580px;
+  height: 40px;
+}
+#app .shopDetail h2 .search input::-webkit-input-placeholder {
+  color: #ccc;
+}
+#app .shopDetail h2 .search input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ccc;
+}
+#app .shopDetail h2 .search input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+}
+#app .shopDetail h2 .search input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ccc;
+}
+#app .shopDetail h2 .search button {
+  float: left;
+  width: 35px;
+  height: 40px;
+  cursor: pointer;
+  background: url("../images/shopList/search.png") center center no-repeat;
+}
+#app .shopDetail .shopDetail-msg {
+  margin-top: 20px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner {
+  width: 1160px;
+  height: 580px;
+  background: #fff;
+  padding: 20px 20px 0;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left {
+  width: 592px;
+  height: 580px;
+  overflow: hidden;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .big {
+  width: 592px;
+  height: 443px;
+  margin-bottom: 8px;
+  position: relative;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .big:hover .prev, #app .shopDetail .shopDetail-msg .shop-banner .shop-left .big:hover .next {
+  display: block;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .big ul {
+  width: 592px;
+  height: 443px;
+  position: relative;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .big ul li {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .big ul li img {
+  width: 592px;
+  height: 443px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .big .prev {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -119px;
+  width: 36px;
+  height: 238px;
+  cursor: pointer;
+  z-index: 100;
+  background: url("../images/shopDetail/prev.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .big .next {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -119px;
+  width: 36px;
+  height: 238px;
+  cursor: pointer;
+  z-index: 100;
+  background: url("../images/shopDetail/next.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .small {
+  width: 592px;
+  height: 106px;
+  position: relative;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .small ol {
+  width: 592px;
+  height: 106px;
+  overflow: hidden;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .small ol li {
+  width: 140px;
+  height: 106px;
+  float: left;
+  margin: 0 4px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .small ol li img {
+  width: 140px;
+  height: 102px;
+  border: 2px solid transparent;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-left .small ol li.cur img {
+  border: 2px solid #224E8F;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right {
+  width: 507px;
+  height: 550px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right h3 {
+  font-size: 30px;
+  color: #333;
+  line-height: 45px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .bianhao {
+  padding: 29px 0 57px;
+  height: 16px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .bianhao span {
+  font-size: 14px;
+  color: #898989;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .bianhao .shoucang {
+  float: right;
+  width: 30px;
+  height: 20px;
+  margin-right: 40px;
+  cursor: pointer;
+  padding-left: 22px;
+  background: url("../images/shopDetail/shoucang.png") left 2px no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .bianhao .shoucang.cur {
+  background: url("../images/shopDetail/shoucang-bg.png") left 2px no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .price {
+  overflow: hidden;
+  border-bottom: 1px solid #eaeaea;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li {
+  text-align: center;
+  float: left;
+  padding: 0 30px;
+  position: relative;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li p {
+  font-size: 18px;
+  color: #333;
+  padding-bottom: 24px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li p span {
+  font-size: 24px;
+  color: #E45E5E;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li p b {
+  font-size: 18px;
+  color: #333;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li .line {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 51px;
+  background: #eaeaea;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .tag {
+  margin: 20px 0 20px 0px;
+  overflow: hidden;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .tag span {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 86px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  color: #76AAF8;
+  margin-right: 8px;
+  border-radius: 5px;
+  border: 1px solid #76AAF8;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .address div span {
+  font-size: 16px;
+  color: #898989;
+  float: left;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .address div b {
+  font-size: 16px;
+  color: #333;
+  float: left;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .address div i {
+  float: left;
+  cursor: pointer;
+  width: 122px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  background: #2E4E8A;
+  border-radius: 5px;
+  margin: -5px 20px 0 45px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .address div a {
+  float: left;
+  font-size: 16px;
+  color: #2E4E8A;
+  margin-left: 10px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .address div a em {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+  margin-right: 5px;
+  background: url("../images/shopDetail/map.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .address div.look a {
+  margin-left: 40px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .address div.look b {
+  width: 250px;
+  line-height: 25px;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .telPhone {
+  width: 281px;
+  height: 66px;
+  margin: 50px auto 0;
+  border-radius: 5px;
+  line-height: 66px;
+  background: #2E4E8A;
+  cursor: pointer;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .telPhone span {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin: 14px 35px 0 35px;
+  background: url("../images/shopDetail/tel.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .telPhone b {
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  vertical-align: 9px;
+}
+#app .shopDetail .shopDetail-msg .title-list {
+  width: 1200px;
+  background: #fff;
+  height: 57px;
+  margin-top: 20px;
+  line-height: 57px;
+}
+#app .shopDetail .shopDetail-msg .title-list .title {
+  padding: 0 20px;
+  width: 1160px;
+  border: 1px solid #eaeaea;
+}
+#app .shopDetail .shopDetail-msg .title-list .title.cur {
+  position: fixed;
+  background: #fff;
+  top: 0;
+  margin-top: 0;
+  z-index: 100;
+}
+#app .shopDetail .shopDetail-msg .title-list .title span {
+  text-align: center;
+  display: inline-block;
+  width: 100px;
+  height: 55px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 50px;
+  font-size: 18px;
+  color: #333;
+  border-bottom: 2px solid transparent;
+}
+#app .shopDetail .shopDetail-msg .title-list .title span.cur {
+  color: #2E4E8A;
+  border-bottom: 2px solid #2E4E8A;
+}
+#app .shopDetail .shopDetail-msg .shop-msg {
+  margin-top: 20px;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left {
+  width: 850px;
+  position: relative;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left h3 {
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2E4E8A;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left h3 span {
+  display: inline-block;
+  width: 2px;
+  height: 22px;
+  background: #2E4E8A;
+  vertical-align: -3px;
+  margin-right: 20px;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi {
+  background: #fff;
+  padding-bottom: 20px;
+  border: 1px solid #eaeaea;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list {
+  overflow: hidden;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl {
+  width: 80px;
+  float: left;
+  text-align: center;
+  padding: 35px 42px 0;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt {
+  margin: 0 auto;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.dian {
+  background: url("../images/shopDetail/dian.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.pai {
+  background: url("../images/shopDetail/pai.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.yan {
+  background: url("../images/shopDetail/yan.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.xia {
+  background: url("../images/shopDetail/xia.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.shang {
+  background: url("../images/shopDetail/shang.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.wai {
+  background: url("../images/shopDetail/wai.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.ting {
+  background: url("../images/shopDetail/wai.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.mei {
+  background: url("../images/shopDetail/mei.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.tian {
+  background: url("../images/shopDetail/tian.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dt.ming {
+  background: url("../images/shopDetail/ming.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl dd {
+  font-size: 18px;
+  color: #ccc;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.dian {
+  background: url("../images/shopDetail/dian-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.pai {
+  background: url("../images/shopDetail/pai-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.yan {
+  background: url("../images/shopDetail/yan-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.xia {
+  background: url("../images/shopDetail/xia-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.shang {
+  background: url("../images/shopDetail/shang-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.wai {
+  background: url("../images/shopDetail/wai-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.ting {
+  background: url("../images/shopDetail/wai-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.mei {
+  background: url("../images/shopDetail/mei-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.tian {
+  background: url("../images/shopDetail/tian-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.ming {
+  background: url("../images/shopDetail/ming-bg.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dd {
+  color: #666;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying {
+  background: #fff;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid #eaeaea;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul {
+  padding-left: 40px;
+  padding-top: 10px;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer {
+  width: 253px;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  position: relative;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li.transfer, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer.transfer {
+  width: 100%;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li span, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer span {
+  color: #898989;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li span b, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer span b {
+  color: #898989;
+  margin-right: 28px;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li span i, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer span i {
+  color: #898989;
+  margin-right: 7px;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li b, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer b {
+  color: #333;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li b.teshu, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer b.teshu {
+  width: 183px;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li .look, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer .look {
+  position: absolute;
+  left: -45px;
+  bottom: 40px;
+  box-shadow: 0 2px 11px #ccc;
+  width: 300px;
+  line-height: 20px;
+  padding: 20px;
+  background: #fff;
+  text-align: justify;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li .look.lookBig, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer .look.lookBig {
+  left: auto;
+  right: 242px;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li .look b, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer .look b {
+  height: 20px !important;
+  line-height: 20px !important;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul li .look s, #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul .transfer .look s {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  background: url("../images/shopList/close.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying ul div {
+  width: 100%;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-right {
+  width: 322px;
+  height: 225px;
+  background: url("../images/shopList/download.png") no-repeat;
+}
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-right a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#app .shopDetail .shopDetail-msg .weizhi {
+  background: #fff;
+  margin-top: 20px;
+  padding-bottom: 40px;
+}
+#app .shopDetail .shopDetail-msg .weizhi h3 {
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2E4E8A;
+  margin-bottom: 20px;
+}
+#app .shopDetail .shopDetail-msg .weizhi h3 span {
+  display: inline-block;
+  width: 2px;
+  height: 22px;
+  background: #2E4E8A;
+  vertical-align: -3px;
+  margin-right: 20px;
+}
+#app .shopDetail .shopDetail-msg .weizhi #allmap {
+  width: 1095px;
+  height: 564px;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=shopDetail.css.map */

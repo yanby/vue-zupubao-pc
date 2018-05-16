@@ -1,0 +1,126 @@
+
+.navbar{
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #333;
+  width: 35px;
+  height: 100%;
+  z-index: 9999;
+  ul{
+    position: absolute;
+    width: 35px;
+    height: 105px;
+    right: 0;
+    top: 50%;
+    margin-top: -52px;
+    li{
+      width: 35px;
+      height: 35px;
+      position: relative;
+      cursor: pointer;
+      &:hover{
+        background: #E8584F;
+      }
+      span{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: inline-block;
+      }
+      .tel-msg{
+        display: none;
+        padding: 20px 0 0;
+        position: absolute;
+        top: -22px;
+        right: 35px;
+        width: 150px;
+        height: 60px;
+        text-align: center;
+        background: #333;
+        border-radius: 5px 0 0 5px;
+        p{
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+      .code-msg{
+        position: absolute;
+        top: -74px;
+        right: 35px;
+        background: #333;
+        border-radius: 5px 0 0 5px;
+        display: none;
+        width: 180px;
+        height: 180px;
+        b{
+          display: inline-block;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin-left: -75px;
+          margin-top: -75px;
+          width: 150px;
+          height: 150px;
+          background: url("../images/navbar/erweima.png") no-repeat;
+        }
+      }
+      .top-msg{
+        display: none;
+        padding: 20px 0 0;
+        position: absolute;
+        top: -12px;
+        right: 35px;
+        width: 150px;
+        height: 40px;
+        color: #fff;
+        text-align: center;
+        background: #333;
+        border-radius: 5px 0 0 5px;
+      }
+    }
+    li:nth-of-type(1){
+      span{
+        margin-left: -8px;
+        margin-top: -8px;
+        width: 15px;
+        height: 16px;
+        background: url("../images/navbar/tel.png") no-repeat;
+      }
+      &:hover{
+        .tel-msg{
+          display: block;
+        }
+      }
+    }
+    li:nth-of-type(2){
+      span{
+        margin-left: -7px;
+        margin-top: -7px;
+        width: 14px;
+        height: 14px;
+        background: url("../images/navbar/code.png") no-repeat;
+      }
+      &:hover{
+        .code-msg{
+          display: block;
+        }
+      }
+    }
+    li:nth-of-type(3){
+      span{
+        margin-left: -10px;
+        margin-top: -8px;
+        width: 21px;
+        height: 17px;
+        background: url("../images/navbar/top.png") no-repeat;
+      }
+      &:hover{
+        .top-msg{
+          display: block;
+        }
+      }
+    }
+  }
+}

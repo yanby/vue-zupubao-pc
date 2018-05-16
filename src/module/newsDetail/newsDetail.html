@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="Description" content=""/>
+  <link rel="shortcut icon" href="https://up-img.oss-cn-beijing.aliyuncs.com/Icon-20.png">
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../common/js/common.js"></script>
+<script type="text/javascript">
+	function GetQueryString(name){  
+         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");  
+         var r = window.location.search.substr(1).match(reg);  
+         if(r!=null)return  unescape(r[2]); return null;  
+    }  
+    var id;   
+    if(GetQueryString("id") !=null && GetQueryString("id").toString().length>1){  
+       id = GetQueryString("id");  
+    } 
+    console.log(id); 
+
+
+    $.ajax({
+        type : "POST",
+        url : "http://api.zpb.youpuchina.com/show/getMediaList",
+        dataType : "json",
+        data : {titleId: id,},
+        success : function(test) {
+        	console.log(test);
+        	var title1 = test.data.info[0].title;
+
+        	var title1 = test.data.info[0].title;
+
+
+        	document.getElementsByTagName('title')[0].innerHTML= title1 + '优铺网'; 
+
+        	var oMeta = document.getElementsByTagName('meta')['Description'];    //第二个
+        	// alert(oMeta.content);
+		      oMeta.content = "优铺网";
+		      // alert(oMeta.content);
+
+
+        },
+    });	
+</script>
+
+</html>

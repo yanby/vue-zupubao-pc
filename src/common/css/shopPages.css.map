@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,KAAK;EACH,OAAO,EAAE,WAAW;EACpB,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,MAAM;;AAClB,oBAAc;EACZ,WAAW,EAAE,MAAM;;AACnB,iGAAgC;EAC9B,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,WAAW,EAAE,IAAI;;AAEnB,wCAAmB;EACjB,UAAU,EAAE,kBAAiB",
+"sources": ["shopPages.scss"],
+"names": [],
+"file": "shopPages.css"
+}

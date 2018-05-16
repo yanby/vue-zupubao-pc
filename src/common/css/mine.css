@@ -1,0 +1,134 @@
+#app {
+  font: 14px/150% "Microsoft YaHei","\5b8b\4f53";
+  background: #fbfbfb;
+}
+#app .mine {
+  margin-top: 20px;
+  padding-bottom: 60px;
+}
+#app .mine .mine-left {
+  width: 230px;
+  background: #fff;
+}
+#app .mine .mine-left .mine-msg {
+  padding: 30px 0 40px;
+}
+#app .mine .mine-left .mine-msg .img {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+  background: url("../images/mine/user.png") no-repeat;
+}
+#app .mine .mine-left .mine-msg p {
+  width: 125px;
+  margin: 20px auto 15px;
+  font-size: 16px;
+  color: #888;
+}
+#app .mine .mine-left .mine-msg p span {
+  display: inline-block;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+  background: url("../images/mine/iphone.png") no-repeat;
+}
+#app .mine .mine-left .mine-msg .txt {
+  width: 140px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+#app .mine .mine-left .mine-list {
+  padding-bottom: 150px;
+}
+#app .mine .mine-left .mine-list ul li {
+  width: 230px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  color: #888;
+  cursor: pointer;
+}
+#app .mine .mine-left .mine-list ul li.cur {
+  background: #224E8F;
+  color: #fff;
+}
+#app .mine .mine-right {
+  width: 940px;
+}
+#app .mine .mine-right .noCollect {
+  width: 940px;
+  min-height: 470px;
+  background: #fff;
+  overflow: hidden;
+}
+#app .mine .mine-right .noCollect .wrap {
+  width: 180px;
+  margin: 160px auto 0;
+}
+#app .mine .mine-right .noCollect .wrap .img {
+  width: 79px;
+  height: 72px;
+  margin: 0 auto 30px;
+  background: url("../images/mine/noCollect.png") no-repeat;
+}
+#app .mine .mine-right .noCollect .wrap .txt {
+  text-align: center;
+  padding-bottom: 140px;
+}
+#app .mine .mine-right .noCollect .wrap .txt a {
+  font-size: 16px;
+  color: #E8584F;
+}
+#app .mine .mine-right .collect {
+  padding: 0 42px;
+  background: #fff;
+  min-height: 470px;
+}
+#app .mine .mine-right .collect h3 {
+  font-size: 24px;
+  color: #333;
+  padding: 40px 0;
+}
+#app .mine .mine-right .collect h3 span {
+  color: #E8584F;
+}
+#app .mine .mine-right .collect .shop-collect li .price p {
+  margin-top: 25px;
+}
+#app .mine .mine-right .collect .shop-collect li .cancel {
+  width: 100px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  background: #eaeaea;
+  border-radius: 3px;
+  margin-top: 30px;
+}
+#app .mine .mine-right .collect .shop-collect li .cancel:hover {
+  background: #E8584F;
+  color: #fff;
+}
+#app .mine .mine-right .collect .shop-collect li .cancel:hover span {
+  background: url("../images/mine/cancle.png") no-repeat;
+}
+#app .mine .mine-right .collect .shop-collect li .cancel span {
+  display: inline-block;
+  width: 15px;
+  height: 13px;
+  vertical-align: -2px;
+  margin-right: 5px;
+  background: url("../images/mine/cancle-bg.png") no-repeat;
+}
+#app .mine .mine-right .page {
+  padding: 10px 0 40px;
+  width: 854px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=mine.css.map */

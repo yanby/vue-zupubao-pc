@@ -1,0 +1,880 @@
+#app {
+  font: 14px/150% "Microsoft YaHei","\5b8b\4f53";
+  background: #fbfbfb;
+}
+#app .aboutUp .crumbs {
+  font-size: 14px;
+  color: #898989;
+  height: 51px;
+  line-height: 51px;
+}
+#app .aboutUp .about-content {
+  padding-bottom: 60px;
+  position: relative;
+}
+#app .aboutUp .about-content .about-left {
+  width: 230px;
+  background: #fff;
+}
+#app .aboutUp .about-content .about-left.cur {
+  position: fixed;
+  top: 15px;
+}
+#app .aboutUp .about-content .about-left ul {
+  border: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-left ul li {
+  font-size: 18px;
+  height: 60px;
+  line-height: 60px;
+  color: #333;
+  cursor: pointer;
+  border-bottom: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-left ul li:hover {
+  color: #224E8F;
+}
+#app .aboutUp .about-content .about-left ul li.cur {
+  background: #224E8F;
+  color: #fff;
+}
+#app .aboutUp .about-content .about-left ul li b {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 9px 0 20px;
+  vertical-align: -3px;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(1).cur b {
+  background: url("../images/aboutUp/fangzi-bg.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(1) b {
+  background: url("../images/aboutUp/fangzi.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(2).cur b {
+  background: url("../images/aboutUp/jiameng-bg.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(2) b {
+  background: url("../images/aboutUp/jiameng.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(3).cur b {
+  background: url("../images/aboutUp/xueyuan-bg.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(3) b {
+  background: url("../images/aboutUp/xueyuan.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(4).cur b {
+  background: url("../images/aboutUp/dianhua-bg.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(4) b {
+  background: url("../images/aboutUp/dianhua.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(5).cur b {
+  background: url("../images/aboutUp/zhaoping-bg.png") no-repeat;
+}
+#app .aboutUp .about-content .about-left ul li:nth-of-type(5) b {
+  background: url("../images/aboutUp/zhaoping.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right {
+  width: 900px;
+  background: #fff;
+  padding: 0 20px;
+  border: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-right .about-right-ul > li {
+  display: none;
+}
+#app .aboutUp .about-content .about-right .about-right-ul > li.cur {
+  display: block;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .guanyu h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+  border-top: none;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .guanyu h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .guanyu h4 {
+  height: 50px;
+  line-height: 50px;
+  color: #333;
+  font-size: 14px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .guanyu p {
+  line-height: 30px;
+  color: #888;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi {
+  padding-top: 40px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg {
+  padding-bottom: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .img {
+  margin-top: 41px;
+  width: 181px;
+  height: 273px;
+  background: url("../images/aboutUp/chuangshiren.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt {
+  width: 700px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt h2 {
+  font-size: 20px;
+  color: #333;
+  margin: 38px 0 20px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt p {
+  text-indent: 2em;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt p:nth-of-type(2) {
+  margin: 17px 0;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .yewu h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .yewu h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .yewu h4 {
+  font-size: 16px;
+  color: #327DC1;
+  font-weight: bold;
+  margin: 30px 0 19px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .yewu h5 {
+  font-size: 14px;
+  color: #D30006;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .yewu p {
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi h4 {
+  color: #333;
+  font-size: 14px;
+  margin: 39px 0 38px;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-msg {
+  padding-bottom: 44px;
+  border-bottom: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-msg .img {
+  margin-top: 30px;
+  margin-left: 15px;
+  width: 166px;
+  height: 58px;
+  background: url("../images/aboutUp/youshi.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-msg .txt {
+  width: 677px;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai h4 {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list {
+  height: 75px;
+  margin-bottom: 8px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .left {
+  height: 75px;
+  width: 400px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .left p {
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .right {
+  width: 350px;
+  height: 75px;
+  margin-right: 70px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .right .jiantou {
+  width: 24px;
+  height: 12px;
+  vertical-align: middle;
+  margin-right: 20px;
+  margin-top: 20px;
+  background: url("../images/aboutUp/jiantou.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .right .jiantou1 {
+  margin-top: 55px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .right .jiantou3 {
+  margin-top: 40px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .right .weixin1 {
+  margin-top: 22px;
+  width: 146px;
+  height: 75px;
+  background: url("../images/aboutUp/weixin1.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .right .weixin2 {
+  margin-top: -10px;
+  width: 219px;
+  height: 75px;
+  background: url("../images/aboutUp/weixin2.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list .right .weixin3 {
+  margin-top: 5px;
+  width: 149px;
+  height: 75px;
+  background: url("../images/aboutUp/weixin3.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-pingtai .youshi-list1 {
+  height: 135px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .huodong-msg1 {
+  margin-bottom: 48px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-huodong {
+  padding-bottom: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-huodong h4 {
+  color: #333;
+  font-size: 14px;
+  margin: 39px 0 38px;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-huodong .huodong-msg .img1 {
+  width: 193px;
+  height: 73px;
+  margin-right: 26px;
+  margin-top: 25px;
+  background: url("../images/aboutUp/shangye.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-huodong .huodong-msg .img2 {
+  width: 116px;
+  height: 36px;
+  margin-right: 36px;
+  margin-top: 58px;
+  margin-left: 67px;
+  background: url("../images/aboutUp/youpu.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-huodong .huodong-msg .txt {
+  width: 605px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .youshi .youshi-huodong .huodong-msg .txt p {
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .zhanlue h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .zhanlue h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .zhanlue .zhanlue-msg {
+  padding: 20px 0 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .zhanlue .zhanlue-msg .img {
+  width: 260px;
+  height: 174px;
+  margin-right: 35px;
+  background: url("../images/aboutUp/zhanlue.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .zhanlue .zhanlue-msg .txt ul li {
+  line-height: 45px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .wenhua h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .wenhua h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .wenhua .wenhua-msg {
+  margin: 40px 0 50px;
+  width: 896px;
+  height: 358px;
+  background: url("../images/aboutUp/wenhua.png") no-repeat;
+  position: relative;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .wenhua .wenhua-msg ul {
+  position: absolute;
+  top: 50%;
+  margin-top: -78px;
+  left: 50%;
+  margin-left: -170px;
+  width: 340px;
+  height: 156px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .wenhua .wenhua-msg ul li {
+  font-size: 16px;
+  height: 31px;
+  line-height: 31px;
+  margin-bottom: 31px;
+  color: #555;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .wenhua .wenhua-msg ul li span {
+  display: inline-block;
+  width: 94px;
+  height: 31px;
+  margin-right: 34px;
+  text-align: center;
+  text-align: center;
+  color: #fff;
+  background: #D30006;
+  border-radius: 5px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .jiameng-msg {
+  border-bottom: 1px solid #eaeaea;
+  padding: 30px 0;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .jiameng-msg p {
+  text-indent: 2em;
+  color: #323333;
+  font-size: 16px;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian {
+  border-bottom: 1px solid #eaeaea;
+  padding: 30px 0;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian h4 {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian .tiaojian-list p {
+  margin-top: 18px;
+  color: #323333;
+  line-height: 30px;
+  width: 425px;
+  float: left;
+  font-size: 16px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian .tiaojian-list p span {
+  width: 22px;
+  height: 80px;
+  margin-right: 8px;
+  float: left;
+  margin-top: 5px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian .tiaojian-list p:nth-of-type(1) {
+  margin-right: 50px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian .tiaojian-list p:nth-of-type(1) span {
+  background: url("../images/aboutUp/1.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian .tiaojian-list p:nth-of-type(2) span {
+  background: url("../images/aboutUp/2.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian .tiaojian-list p:nth-of-type(3) {
+  margin-right: 50px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian .tiaojian-list p:nth-of-type(3) span {
+  background: url("../images/aboutUp/3.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .tiaojian .tiaojian-list p:nth-of-type(4) span {
+  background: url("../images/aboutUp/4.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi {
+  border-bottom: 1px solid #eaeaea;
+  padding: 30px 0;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list {
+  float: left;
+  width: 425px;
+  height: 140px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list .shouyi-msg .img {
+  float: left;
+  margin-right: 20px;
+  width: 54px;
+  height: 100px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list .shouyi-msg .txt h5 {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list .shouyi-msg .txt p {
+  font-size: 16px;
+  color: #333;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(1) {
+  margin-right: 50px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(1) .img {
+  background: url("../images/aboutUp/guquan.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(2) .img {
+  background: url("../images/aboutUp/peixun.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(3) {
+  margin-right: 50px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(3) .img {
+  background: url("../images/aboutUp/ziyuan.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(4) .img {
+  background: url("../images/aboutUp/gongju.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(5) {
+  margin-right: 50px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(5) .img {
+  background: url("../images/aboutUp/pingpai.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(6) .img {
+  background: url("../images/aboutUp/moshi.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(7) {
+  margin-right: 50px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(7) .img {
+  background: url("../images/aboutUp/fuwu.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(8) .img {
+  background: url("../images/aboutUp/cangu.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(9) {
+  margin-right: 50px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(9) .img {
+  background: url("../images/aboutUp/shangshi.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .rexian {
+  padding: 30px 0 60px;
+  text-align: center;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .rexian p {
+  font-size: 16px;
+  color: #333;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .xueyuan-msg {
+  padding: 30px 0 40px;
+  border-bottom: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .xueyuan-msg p {
+  font-size: 16px;
+  color: #333;
+  text-indent: 2em;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .yuanze {
+  padding: 40px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .yuanze h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .yuanze p {
+  font-size: 16px;
+  color: #333;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi {
+  padding: 40px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg {
+  width: 425px;
+  float: left;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg .img {
+  width: 22px;
+  height: 100px;
+  margin-right: 8px;
+  float: left;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg .txt h5 {
+  font-size: 16px;
+  color: #224E8F;
+  margin-bottom: 10px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg .txt p {
+  font-size: 16px;
+  color: #333;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg:nth-of-type(1) {
+  margin-right: 50px;
+  height: 90px;
+  background: url("../images/aboutUp/ppjz.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg:nth-of-type(2) {
+  height: 90px;
+  background: url("../images/aboutUp/qcjz.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg:nth-of-type(3) {
+  height: 120px;
+  margin-right: 50px;
+  background: url("../images/aboutUp/scjz.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg:nth-of-type(4) {
+  height: 120px;
+  background: url("../images/aboutUp/ryjz.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .jiazhi .jiazhi-list .jiazhi-msg:nth-of-type(5) {
+  margin-right: 50px;
+  background: url("../images/aboutUp/cxjz.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi {
+  padding-top: 40px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list {
+  margin-bottom: 40px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg {
+  float: left;
+  padding: 0 20px;
+  border: 1px solid #eaeaea;
+  width: 175px;
+  height: 328px;
+  margin-right: 10px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg .img {
+  width: 48px;
+  height: 48px;
+  margin: 20px auto 0;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg h5 {
+  font-size: 16px;
+  color: #224E8F;
+  text-align: center;
+  margin: 15px 0 15px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg p {
+  font-size: 16px;
+  text-align: justify;
+  color: #333;
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(1) .img {
+  background: url("../images/aboutUp/zhenghe.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(2) {
+  background: #224E8F;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(2) .img {
+  background: url("../images/aboutUp/tuozhan.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(2) h5 {
+  color: #fff;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(2) p {
+  color: #fff;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(3) .img {
+  background: url("../images/aboutUp/ziyuanfuwu.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(4) {
+  background: #224E8F;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(4) .img {
+  background: url("../images/aboutUp/ziben.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(4) h5 {
+  color: #fff;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .zhichi .zhichi-list .zhichi-msg:nth-of-type(4) p {
+  color: #fff;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .fenlei h4 {
+  padding: 40px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .fenlei .table {
+  margin: 0 auto;
+  width: 848px;
+  height: 365px;
+  background: url("../images/aboutUp/table1.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .gudong h4 {
+  padding: 40px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .gudong .table {
+  margin: 0 auto;
+  width: 848px;
+  height: 516px;
+  background: url("../images/aboutUp/table2.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .shoufei-msg {
+  width: 818px;
+  height: 50px;
+  margin: 30px auto 0;
+  line-height: 50px;
+  font-size: 16px;
+  color: #fff;
+  padding-left: 30px;
+  background: #224E8F;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .rexian {
+  padding: 30px 0 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(4) h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(4) h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(4) .address {
+  padding: 50px 0;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(4) .address .img {
+  margin: 0 auto;
+  width: 862px;
+  height: 446px;
+  background: url("../images/aboutUp/address.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) h3 {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 20px;
+  color: #224E8F;
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) h3 b {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-right: 9px;
+  vertical-align: -2px;
+  background: url("../images/aboutUp/biaoti.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping {
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+  padding: 30px 0;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping h4 {
+  font-size: 20px;
+  color: #323333;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping h4 span {
+  color: #2E4E8A;
+  margin-left: 20px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .tab {
+  width: 267px;
+  height: 36px;
+  position: absolute;
+  right: 0;
+  top: 29px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .tab span {
+  cursor: pointer;
+  display: inline-block;
+  width: 100px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  color: #323333;
+  border: 1px solid #eaeaea;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .tab span.cur {
+  background: #2E4E8A;
+  color: #fff;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .tab span:nth-of-type(2).cur {
+  color: #fff;
+  background: #D66156 !important;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .tab span:nth-of-type(1) {
+  margin-right: 33px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .zhaoping-msg {
+  margin-top: 37px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .zhaoping-msg div {
+  display: none;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .zhaoping-msg div p {
+  line-height: 30px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(5) .zhaoping .zhaoping-msg div.cur {
+  display: block;
+}
+
+/*# sourceMappingURL=aboutUp.css.map */

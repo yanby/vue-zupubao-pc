@@ -1,0 +1,18 @@
+.page {
+  padding: 10px 0 40px;
+  width: 854px;
+  text-align: center;
+}
+.page .el-pagination {
+  font-weight: normal;
+}
+.page .el-pagination .btn-prev, .page .el-pagination .btn-next, .page .el-pagination .el-pager li {
+  height: 38px;
+  width: 38px;
+  line-height: 38px;
+}
+.page .el-pagination .el-pager li.active {
+  background: #224e8f !important;
+}
+
+/*# sourceMappingURL=shopPages.css.map */
