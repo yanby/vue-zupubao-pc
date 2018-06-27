@@ -118,6 +118,7 @@ export default {
                 line-height: 20px;
                 font-size: 16px;
                 color: #fff;
+                font-family: "KaiGenGothicSC-Light";
             }
             .p1{
                 margin-top: 10px;
@@ -130,7 +131,6 @@ export default {
 .app_img{
     width: 1060px;
     height: 800px;
-    /*background: red;*/
     text-indent: 10000;
     position: absolute;
     left: 50%;
@@ -140,13 +140,11 @@ export default {
         width: 340px;
         height: 696px;
         margin-top: 100px;
-        /*background: yellow;*/
         float: left;
     }
     .img_right{
         width: 630px;
         height: 696px;
-        /*background: pink;*/
         margin-top: 100px;
         float: left;
         margin-left: 80px;
@@ -178,8 +176,9 @@ export default {
                     float: left;
                     color: #666;
                     font-size: 28px;
-                    margin-top: 22px;
+                    margin-top: 30px;
                     font-weight: 430;
+                    font-family: "KaiGenGothicSC-Light";
                 }
             }
             .img1:hover{
@@ -213,8 +212,9 @@ export default {
                     float: left;
                     color: #666;
                     font-size: 28px;
-                    margin-top: 20px;
+                    margin-top: 26px;
                     font-weight: 430;
+                    font-family: "KaiGenGothicSC-Light";
                 }
             }
             .img2:hover{
@@ -238,12 +238,6 @@ export default {
     position: relative;
     /*vertical-align:middle;*/
 }
-.el-carousel__item h3>img{
-    /*margin: 0;*/
-    /*image-rendering: auto;*/
-    /*text-align: center;*/
-    /*vertical-align:middle;*/  
-}
 .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
 }
@@ -253,7 +247,6 @@ export default {
 .el-carousel__button {
     width: 12px!important;
     height: 12px!important;
-    /*background-color: red!important;*/
     border-radius: 50%!important;
 }
 

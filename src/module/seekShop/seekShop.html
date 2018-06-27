@@ -7,8 +7,181 @@
 	<meta name="Description" content="优铺网旗下租铺宝提供快速找店铺、找门面、求租临街门面等多项找铺服务。十年经验商铺选址顾问全程一对一服务，行业首家承诺“不成交不收费”的商铺交易平台。"/>
     <link rel="shortcut icon" href="https://up-img.oss-cn-beijing.aliyuncs.com/Icon-20.png">
 </head>
+<style type="text/css">
+    a[title="站长统计"]{
+      visibility: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+</style>
 <body>
-<div id="app"></div>
+<script src="https://s19.cnzz.com/z_stat.php?id=1273667551&web_id=1273667551" language="JavaScript"></script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273667551'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273667551' type='text/javascript'%3E%3C/script%3E"));</script>
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6924f04257dd020d27c4015ee7b24461";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+  //检测是什么设配打开
+  function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+      "SymbianOS", "Windows Phone",
+      "iPad", "iPod"
+    ];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+  if (!IsPC()) {
+    window.location.href = 'http://m.youpuchina.com/seekShop';
+  }
+</script>
+<div id="app">
+  <div style='display: none'>
+    <a href="http://www.youpuchina.com">首页</a>
+    <a href="http://www.youpuchina.com/shopList.html">找铺开店</a>
+    <a href="http://www.youpuchina.com/seekShop.html">委托找铺</a>
+    <a href="http://www.youpuchina.com/turnShop.html">委托转铺</a>
+    <a href="http://www.youpuchina.com/news.html">行业资讯</a>
+    <a href="http://www.youpuchina.com/appDownload.html">APP下载</a>
+    <a href="http://youpu100.cn/">卖铺宝</a>
+    <div class="seek_wrap">
+      <div class="seek_box">
+        <div class="seek_box1">
+          <div class="box_free">
+            <h3>免费委托找铺</h3>
+            <h5>已有<span>{{this.seekShopObj}}</span>人成功开店</h5>
+            <input type="text" name="" placeholder="请输入手机号,专属顾问5分钟内与您联系" maxlength="11" v-model="telVal">
+            <div class="submit_btn" @click="seekBtn">提交</div>
+            <h6>客服电话：400-898-8808</h6>
+          </div>
+          <div class="seek_right">
+            <h1>在线委托找铺平均<span>28</span>天成功开店</h1>
+            <h3>专属选址顾问竭诚为您服务</h3>
+            <dl>
+              <dt>
+                <div>全</div>
+              </dt>
+              <dd>
+                <span>●</span><li>全网铺源整合+众包地面采集+店主平台提交，铺源覆盖全渠道</li>
+                <span>●</span><li>商业街、购物中心、社区底商、独立商业铺源覆盖全业态</li>
+                <span>●</span><li>商铺直租、转让、招商多种租赁形式一应俱全</li>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <div>真</div>
+              </dt>
+              <dd>
+                <span>●</span><li>真实铺源，铺源100%人工核查证照、资质、产权全面核验</li>
+                <span>●</span><li>真实价格，拒绝虚报价格，实际保障，不吃差价</li>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <div>鲜</div>
+              </dt>
+              <dd>
+                <span>●</span><li>铺源时时上新，最快速度抢旺铺</li>
+                <span>●</span><li>独家铺源优先发布，新鲜供应不错过</li>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="seek_present">
+        <h2>委托找铺六大安心服务承诺</h2>
+        <dl>
+          <dt><img src="./images/li1.png"></dt>
+          <dd>
+            <h3>不成交 服务费全额退</h3>
+            <p>服务费仅为传统中介费1/10，合作期内未成功找到满意店铺，全额退还服务费</p>
+          </dd>
+        </dl>
+        <dl>
+          <dt><img src="./images/li2.png"></dt>
+          <dd>
+            <h3>铺源全、真、鲜</h3>
+            <p>全网整合+人工采集铺源全覆盖，铺源100%人工核验，独家铺源新鲜上架</p>
+          </dd>
+        </dl>
+        <dl>
+          <dt><img src="./images/li3.png"></dt>
+          <dd>
+            <h3>实价保障 不吃差价</h3>
+            <p>专业选址顾问全程陪同谈判议价，拒绝虚高报价，杜绝吃差价</p>
+          </dd>
+        </dl>
+        <dl>
+          <dt><img src="./images/li4.png"></dt>
+          <dd>
+            <h3>拆迁担保  10倍赔付</h3>
+            <p>推荐商铺签约成功一年内遇拆迁，保障资金10倍赔付</p>
+          </dd>
+        </dl>
+        <dl>
+          <dt><img src="./images/li5.png"></dt>
+          <dd>
+            <h3>法律担保  规避风险</h3>
+            <p>知名律师事务所战略合作，签约过程中遇到法律纠纷，全程免费协助</p>
+          </dd>
+        </dl>
+        <dl>
+          <dt><img src="./images/li6.png"></dt>
+          <dd>
+            <h3>过户担保  安全交易</h3>
+            <p>专业选址顾问全程陪签，交易过户资金托管，平稳交易无风险</p>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <h2>北京商铺出租转让:</h2>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=122&name=%E6%9C%9D%E9%98%B3">朝阳商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=122&name=%E6%9C%9D%E9%98%B3">海淀商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=221&name=%E8%A5%BF%E5%9F%8E">西城商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=180&name=%E4%B8%9C%E5%9F%8E">东城商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=61&name=%E4%B8%B0%E5%8F%B0">丰台商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=114&name=%E7%9F%B3%E6%99%AF%E5%B1%B1">石景山商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=41&name=%E5%A4%A7%E5%85%B4">大兴商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=245&name=%E6%98%8C%E5%B9%B3">昌平商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=91&name=%E9%80%9A%E5%B7%9E">通州商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=202&name=%E9%A1%BA%E4%B9%89">顺义商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=220&name=%E6%88%BF%E5%B1%B1">房山商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=89&name=%E9%97%A8%E5%A4%B4%E6%B2%9F">门头沟商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=113&name=%E6%80%80%E6%9F%94">怀柔商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=90&name=%E5%B9%B3%E8%B0%B7">平谷商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=1&name=%E5%AF%86%E4%BA%91">密云商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=201&name=%E5%BB%B6%E5%BA%86">延庆商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=265&name=%E5%85%B6%E4%BB%96">其他商铺出租转让</a>
+
+    <a href="http://www.youpuchina.com/aboutUp.html">关于优铺</a>
+    <a href="http://www.youpuchina.com/joinUp.html">加盟优铺</a>
+    <a href="http://www.youpuchina.com/contactUp.html">联系优铺</a>
+    <a href="http://www.youpuchina.com/recruitUp.html">优铺招聘</a>
+    <a href="http://www.youpuchina.com/shopMap.html">网站地图</a>
+    <a href="http://www.zhongjinglianmeng.com/">中经联盟</a>
+
+    <h2>优铺控股旗下产品</h2>
+    <a href="http://www.youpuchina.com/"> 租铺宝</a>
+    <a href="http://youpu100.cn/"> 卖铺宝</a>
+    <a href="http://www.youpuchina.com/collegeUp.html"> 优铺商学院</a>
+
+    <p>版权所有：北京优铺网络科技有限公司 Copyright 2016 Beijing Youpu Network Technology Co., Ltd</p>
+    <p>京ICP备16035060号 客服电话：4008988808</p>
+  </div>
+</div>
 <!-- built files will be auto injected -->
 </body>
 </html>

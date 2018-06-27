@@ -1,6 +1,136 @@
-#app {
-  font: 14px/150% "Microsoft YaHei","\5b8b\4f53";
-  background: #fbfbfb;
+#app .model-inner {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+}
+#app .model-inner .model {
+  width: 255px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  margin-left: -125px;
+  top: 50%;
+  margin-top: -75px;
+  background: #fff;
+}
+#app .model-inner .model p {
+  padding: 38px 19px 32px;
+  font-size: 14px;
+  color: #333;
+}
+#app .model-inner .model div {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #2e4e8a;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+#app .model-wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+}
+#app .model-wrap .model {
+  width: 336px;
+  height: 260px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  margin-left: -168px;
+  top: 50%;
+  margin-top: -130px;
+  border-radius: 5px;
+}
+#app .model-wrap .model h2 {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  padding-top: 30px;
+}
+#app .model-wrap .model p {
+  text-align: center;
+  padding: 30px 0 18px;
+  font-size: 14px;
+  color: #666;
+}
+#app .model-wrap .model .input {
+  position: relative;
+  margin: 0 auto;
+  width: 280px;
+}
+#app .model-wrap .model .input input {
+  width: 270px;
+  height: 36px;
+  padding-left: 10px;
+  line-height: 36px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#app .model-wrap .model .input input::-webkit-input-placeholder {
+  color: #ccc;
+}
+#app .model-wrap .model .input input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ccc;
+}
+#app .model-wrap .model .input input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+}
+#app .model-wrap .model .input input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ccc;
+}
+#app .model-wrap .model .input span {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  font-size: 12px;
+  color: #E8584F;
+}
+#app .model-wrap .model .btn {
+  margin-top: 46px;
+}
+#app .model-wrap .model .btn span, #app .model-wrap .model .btn b {
+  display: inline-block;
+  width: 50%;
+  height: 56px;
+  line-height: 56px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+#app .model-wrap .model .btn span {
+  background: #d66156;
+  border-radius: 0 0 0 5px;
+}
+#app .model-wrap .model .btn b {
+  background: #2e4e8a;
+  border-radius: 0 0 5px 0;
+}
+#app .model-wrap .model .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  background: url("../images/shopDetail/close.png") no-repeat;
 }
 #app .shopDetail {
   padding-top: 20px;
@@ -144,7 +274,7 @@
   border: 2px solid #224E8F;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right {
-  width: 507px;
+  width: 540px;
   height: 550px;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right h3 {
@@ -153,7 +283,8 @@
   line-height: 45px;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .bianhao {
-  padding: 29px 0 57px;
+  padding: 10px 0 30px;
+  border-bottom: 1px solid #eaeaea;
   height: 16px;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .bianhao span {
@@ -173,13 +304,14 @@
   background: url("../images/shopDetail/shoucang-bg.png") left 2px no-repeat;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .price {
+  padding-top: 20px;
   overflow: hidden;
   border-bottom: 1px solid #eaeaea;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li {
   text-align: center;
   float: left;
-  padding: 0 30px;
+  padding: 0 18px;
   position: relative;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li p {
@@ -188,19 +320,26 @@
   padding-bottom: 24px;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li p span {
-  font-size: 24px;
+  font-size: 22px;
+  color: #E45E5E;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li p i {
+  font-size: 18px;
   color: #E45E5E;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li p b {
   font-size: 18px;
   color: #333;
 }
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li p s {
+  font-size: 14px;
+}
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .price li .line {
   position: absolute;
   right: 0;
   top: 0;
   width: 1px;
-  height: 51px;
+  height: 75px;
   background: #eaeaea;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .tag {
@@ -265,23 +404,47 @@
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .telPhone {
   width: 281px;
-  height: 66px;
-  margin: 50px auto 0;
+  height: 55px;
+  margin: 40px 0;
   border-radius: 5px;
-  line-height: 66px;
+  line-height: 55px;
   background: #2E4E8A;
   cursor: pointer;
+  position: relative;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .telPhone .telPhone-msg {
+  position: absolute;
+  left: 0;
+  top: 80px;
+  width: 281px;
+  height: 35px;
+  line-height: 35px;
+  text-indent: 10px;
+  background: #F5DFDD;
+  color: #D66156;
+}
+#app .shopDetail .shopDetail-msg .shop-banner .shop-right .telPhone .telPhone-msg .jiao {
+  position: absolute;
+  top: -20px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border-radius: 4px;
+  border: 10px solid #F5DFDD;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .telPhone span {
   display: inline-block;
-  width: 34px;
-  height: 34px;
+  width: 24px;
+  height: 24px;
   margin: 14px 35px 0 35px;
   background: url("../images/shopDetail/tel.png") no-repeat;
 }
 #app .shopDetail .shopDetail-msg .shop-banner .shop-right .telPhone b {
   display: inline-block;
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
   vertical-align: 9px;
 }
@@ -331,7 +494,7 @@
   height: 60px;
   line-height: 60px;
   padding: 0 20px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: #2E4E8A;
 }
@@ -352,6 +515,7 @@
   overflow: hidden;
 }
 #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl {
+  display: none;
   width: 80px;
   float: left;
   text-align: center;
@@ -397,6 +561,9 @@
   font-size: 18px;
   color: #ccc;
 }
+#app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur {
+  display: block;
+}
 #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dt.dian {
   background: url("../images/shopDetail/dian-bg.png") no-repeat;
 }
@@ -428,7 +595,7 @@
   background: url("../images/shopDetail/ming-bg.png") no-repeat;
 }
 #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .sheshi .list dl.cur dd {
-  color: #666;
+  color: #2E4E8A;
 }
 #app .shopDetail .shopDetail-msg .shop-msg .shopMsg-left .jingying {
   background: #fff;

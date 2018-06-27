@@ -2,12 +2,294 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>优铺</title>
+  <title>商铺转租/生意转让-优铺网</title>
   <link rel="shortcut icon" href="https://up-img.oss-cn-beijing.aliyuncs.com/Icon-20.png">
+  <meta name="Keywords" content="生意转让，生意转让，租金，面积，转让费，租铺宝，优铺网">
+  <meta name="Description" content="商铺转租/生意转让，您联系店主时，请告知是在优铺网旗下租铺宝上看到的，方便您和店主更好地沟通，交易有保障">
   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OxAEbfrVXXqWUSC4nP8mYi3bTKRBcP6u"></script>
 </head>
+<style type="text/css">
+    a[title="站长统计"]{
+      visibility: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+</style>
 <body>
-<div id="app"></div>
+<script src="https://s19.cnzz.com/z_stat.php?id=1273667551&web_id=1273667551" language="JavaScript"></script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273667551'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273667551' type='text/javascript'%3E%3C/script%3E"));</script>
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6924f04257dd020d27c4015ee7b24461";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+  //检测是什么设配打开
+  function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+      "SymbianOS", "Windows Phone",
+      "iPad", "iPod"
+    ];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+  if (!IsPC()) {
+    window.location.href = 'http://m.youpuchina.com/lookShop';
+  }
+</script>
+<div id="app">
+  <div style="display: none">
+    <a href="http://www.youpuchina.com">首页</a>
+    <a href="http://www.youpuchina.com/shopList.html">找铺开店</a>
+    <a href="http://www.youpuchina.com/seekShop.html">委托找铺</a>
+    <a href="http://www.youpuchina.com/turnShop.html">委托转铺</a>
+    <a href="http://www.youpuchina.com/news.html">行业资讯</a>
+    <a href="http://www.youpuchina.com/appDownload.html">APP下载</a>
+    <a href="http://youpu100.cn/">卖铺宝</a>
+    <div class="model-wrap" v-if="modelPu===1">
+      <div class="model">
+        <h2>您找到满意的铺源了吗？</h2>
+        <p>输入手机号专家免费帮您找铺</p>
+        <div class="input"><input v-model="modelTxt" type="text" placeholder="输入手机号，专家免费帮您找铺"><span>*请输入手机号</span></div>
+        <div class="btn"><span @click="zhaoFun()">我要找铺</span><b @click="zhuanFun()">我要转铺</b></div>
+        <div class="close" @click="modelPu=0"></div>
+      </div>
+    </div>
+    <div class="model-inner" v-if="modelSuccee===1">
+      <div class="model">
+        <p>委托成功,优铺客服会在<span>24小时内</span>与您联系， 请保持手机畅通！</p>
+        <div @click="modelSuccee=0">我知道了</div>
+      </div>
+    </div>
+    <div class="shopDetail w1200">
+      <h2><span><a href="index.html">首页</a>><a href="shopList.html">北京</a>>{{wzxx.areaName}}>{{businessAreaName}}>商铺详情</span>
+        <div class="search">
+          <input type="text" placeholder="区域/商圈/业态/商铺编号" v-model="search" @keyup.enter="searchFun()"><button @click="searchFun()"></button>
+        </div>
+      </h2>
+      <div class="shopDetail-msg">
+        <div class="shop-banner clearfix">
+          <div class="shop-left left">
+            <div class="big">
+              <div class="prev"></div>
+              <div class="next"></div>
+              <ul>
+                <li v-for="item in imgs"><img :src="item" alt=""></li>
+              </ul>
+            </div>
+            <div class="small">
+              <ol>
+                <li v-for="item in imgs"><img :src="item" alt=""></li>
+              </ol>
+            </div>
+          </div>
+          <div class="shop-right right">
+            <h3>{{wzxx.areaName}}{{businessAreaName}}{{wzxx.road}}{{useArea}}m²&nbsp;,<b v-show="rentType">&nbsp;{{rentType}}&nbsp;,</b>&nbsp;{{license}}</h3>
+            <div class="bianhao">
+              <span>商铺编号：{{shopNumber}}</span>
+              <div class="shoucang" @click="shoucang($event)">
+                收藏
+              </div>
+            </div>
+            <ul class="price">
+              <li>
+                <p><span>{{monthlyRent}}</span> <b>{{unitMonthRent}}</b></p>
+                <p>月租金</p>
+                <div class="line"></div>
+              </li>
+              <li v-if="dailyRent">
+                <p><span>{{dailyRent}}</span> <b>{{unitDailyRent}}</b></p>
+                <p>日租金</p>
+                <div class="line"></div>
+              </li>
+              <li>
+                <p><span>{{zrfy.transferFee}}</span> <b>{{zrfy.unitTransFerfee}}</b></p>
+                <p>转让费</p>
+              </li>
+            </ul>
+            <div class="tag">
+              <span v-for="item in shopTags">{{item}}</span>
+            </div>
+            <div class="address">
+              <div v-if="add===1" class="clearfix"><span>地址：</span><b>{{wzxx.road}} &nbsp;附近</b><i @click="address()">查看详细地址</i><a href="javascript:;"><em></em><s @click="mapBtn()">查看地图</s></a></div>
+              <div v-else-if="add===2" class="look clearfix"><span>地址：</span><b>{{wzxx.areaName}}{{wzxx.road}}{{realAddress}}</b><a href="javascript:;"><em></em><s @click="mapBtn()">查看地图</s></a></div>
+            </div>
+            <div v-if="tel===1" class="telPhone" @click="telPhone()">
+              <span></span><b>查看店主电话</b>
+              <div class="telPhone-msg">已有{{browseCount}}人浏览了本铺，建议尽快联系看铺 <i class="jiao"></i></div>
+            </div>
+            <div v-else-if="tel===2" class="telPhone">
+              <span></span><b>{{iphone}}</b>
+            </div>
+          </div>
+        </div>
+        <div class="title-list">
+          <div class="title">
+            <span class="cur">配套设施</span>
+            <span>经营状态</span>
+            <span>物业信息</span>
+            <span>费用信息</span>
+            <span class="m0">位置信息</span>
+          </div>
+        </div>
+        <div class="shop-msg clearfix">
+          <div class="shopMsg-left left">
+
+            <div class="sheshi" id="sheshi">
+              <h3><span></span>配套设施</h3>
+              <div class="list clearfix">
+                <dl>
+                  <dt class="dian"></dt>
+                  <dd>380伏</dd>
+                </dl>
+                <dl>
+                  <dt class="pai"></dt>
+                  <dd>排污管道</dd>
+                </dl>
+                <dl>
+                  <dt class="yan"></dt>
+                  <dd>烟管道</dd>
+                </dl>
+                <dl>
+                  <dt class="xia"></dt>
+                  <dd>下水</dd>
+                </dl>
+                <dl>
+                  <dt class="shang"></dt>
+                  <dd>上水</dd>
+                </dl>
+                <dl>
+                  <dt class="wai"></dt>
+                  <dd>外摆区</dd>
+                </dl>
+                <dl>
+                  <dt class="ting"></dt>
+                  <dd>停车位</dd>
+                </dl>
+                <dl>
+                  <dt class="mei"></dt>
+                  <dd>煤气</dd>
+                </dl>
+                <dl>
+                  <dt class="tian"></dt>
+                  <dd>天然气</dd>
+                </dl>
+                <dl>
+                  <dt class="ming"></dt>
+                  <dd>明火</dd>
+                </dl>
+              </div>
+            </div>
+            <div class="jingying" id="jingyin">
+              <h3><span></span>经营状态</h3>
+              <ul class="clearfix">
+                <li v-show="manageType"><span>当前经营：</span><b class="manageType" :title="manageType">{{manageType1}}</b></li>
+                <li v-show="license"><span><b>证</b>照：</span><b>{{license}}</b></li>
+                <li v-show="shopPapers.length > 0"><span>已有证件：</span><b v-if="index < 1" class="teshu" v-for="(item,index) in shopPapers">{{item}} &nbsp;</b><b v-if="shopPapers.length > 1">等{{shopPapers.length}}项 &nbsp;</b><a
+                  href="javascript:;" class="blue" @click="certificateFun()" v-if="shopPapers.length > 2">详情</a>
+                  <div class="look" v-if="certificate"><b v-for="(item,index) in shopPapers">{{item}} &nbsp;</b><s @click="delcertificateFun()"></s></div>
+                </li>
+                <li v-show="jyzt.manageStatus"><span>经营状态：</span><b>{{jyzt.manageStatus}}</b></li>
+                <li v-show="shopAdvantages.length > 0"><span>本店优势：</span><b v-if="index < 1" class="teshu" v-for="(item,index) in shopAdvantages">{{item}} &nbsp;</b><b v-if="shopAdvantages.length > 1">等{{shopAdvantages.length}}项 &nbsp;</b><a
+                  href="javascript:;" class="blue" @click="advantageFun()" v-if="shopAdvantages.length > 2">详情</a>
+                  <div class="look" v-if="advantage"><b v-for="(item,index) in shopAdvantages">{{item}}</b><s @click="deladvantageFun()"></s></div>
+                </li>
+                <li v-show="jyzt.brandStatus"><span>品牌情况：</span><b v-for="item in jyzt.brandStatus">{{item}}</b></li>
+                <li v-show="jyzt.noManageType" class="m0"><span>不可经营业态：</span><b>{{jyzt.noManageType}}</b></li>
+                <div class="transfer" v-show="shopIssues.length > 0"><span>过往经营最的大问题：</span><b v-if="index < 1" class="teshu" v-for="(item,index) in shopIssues">{{item}} &nbsp;</b><b v-if="shopIssues.length > 1">等{{shopIssues.length}}项 &nbsp;</b><a
+                  href="javascript:;" class="blue" @click="issueFun()" v-if="shopIssues.length > 2">详情</a>
+                  <div class="look lookBig" v-if="issue"><b v-for="(item,index) in shopIssues">{{item}} &nbsp;</b><s @click="delissueFun()"></s></div>
+                </div>
+              </ul>
+            </div>
+            <div class="jingying wuye" id="wuye">
+              <h3><span></span>物业信息</h3>
+              <ul class="clearfix">
+                <li v-show="wyxx.typeName"><span>商铺类型：</span><b>{{wyxx.typeName}}</b></li>
+                <li v-show="wyxx.buildArea"><span>建筑面积：</span><b>{{wyxx.buildArea}}m²</b></li>
+                <li v-show="useArea"><span>使用面积：</span><b>{{useArea}}m²</b></li>
+                <li v-show="wyxx.floor"><span><b>楼</b>层：</span><b>{{wyxx.floor}}</b></li>
+                <li v-show="wyxx.spearate"><span>是否分隔：</span><b>{{wyxx.spearate}}</b></li>
+                <li v-show="wyxx.froutage"><span>临主干道：</span><b>{{wyxx.froutage}}</b></li>
+                <li v-show="wyxx.floorHeight"><span><b>层</b>高：</span><b>{{wyxx.floorHeight}}m</b></li>
+                <li v-show="wyxx.faceWidth"><span><b>面</b>宽：</span><b>{{wyxx.faceWidth}}m</b></li>
+                <li v-show="wyxx.depth"><span><b>进</b>深：</span><b>{{wyxx.depth}}m</b></li>
+                <li v-show="wyxx.orientation"><span><b>朝</b>向：</span><b>{{wyxx.orientation}}</b></li>
+                <li v-show="wyxx.propertyName"><span><b>产</b>权：</span><b>{{wyxx.propertyName}}</b></li>
+                <li v-show="" class="m0"><span>其他产权：</span><b>{{}}</b></li>
+              </ul>
+            </div>
+            <div class="jingying zuyue" id="feiyong">
+              <h3><span></span>费用信息</h3>
+              <ul class="clearfix">
+                <li v-show="monthlyRent"><span><i>月</i><i>租</i>金：</span><b>{{monthlyRent}}{{unitMonthRent}}</b></li>
+                <li v-show="wyxx.pledgeCash"><span><b>押</b>金：</span><b>{{wyxx.pledgeCash}}</b></li>
+                <li v-show="wyxx.payType"><span>支付方式：</span><b>{{wyxx.payType}}</b></li>
+                <li v-show="wyxx.timeRent"><span>分时出租：</span><b>{{wyxx.timeRent}}</b></li>
+                <li v-show="wyxx.maxLease"><span>最长租约：</span><b>{{wyxx.maxLease}}个月</b></li>
+                <li v-show="wyxx.currLease"><span>当前租约：</span><b>{{wyxx.currLease}}个月</b></li>
+                <li v-show="wyxx.residue"><span><i>还</i><i>剩</i>余：</span><b>{{wyxx.residue}}个月</b></li>
+                <li v-show="wyxx.leaseCase" class="m0"><span>续约情况：</span><b>{{wyxx.leaseCase}}</b></li>
+                <li><span><i>转</i><i>让</i>费：</span><b>{{zrfy.transferFee}}{{zrfy.unitTransFerfee}}</b></li>
+              </ul>
+            </div>
+          </div>
+          <div class="shopMsg-right right">
+            <a href="appDownload.html"></a>
+          </div>
+        </div>
+        <div class="weizhi w1200" id="map">
+          <h3><span></span>位置信息</h3>
+          <div id="allmap"></div>
+        </div>
+      </div>
+    </div>
+    <h2>北京商铺出租转让:</h2>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=122&name=%E6%9C%9D%E9%98%B3">朝阳商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=122&name=%E6%9C%9D%E9%98%B3">海淀商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=221&name=%E8%A5%BF%E5%9F%8E">西城商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=180&name=%E4%B8%9C%E5%9F%8E">东城商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=61&name=%E4%B8%B0%E5%8F%B0">丰台商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=114&name=%E7%9F%B3%E6%99%AF%E5%B1%B1">石景山商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=41&name=%E5%A4%A7%E5%85%B4">大兴商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=245&name=%E6%98%8C%E5%B9%B3">昌平商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=91&name=%E9%80%9A%E5%B7%9E">通州商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=202&name=%E9%A1%BA%E4%B9%89">顺义商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=220&name=%E6%88%BF%E5%B1%B1">房山商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=89&name=%E9%97%A8%E5%A4%B4%E6%B2%9F">门头沟商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=113&name=%E6%80%80%E6%9F%94">怀柔商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=90&name=%E5%B9%B3%E8%B0%B7">平谷商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=1&name=%E5%AF%86%E4%BA%91">密云商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=201&name=%E5%BB%B6%E5%BA%86">延庆商铺出租转让</a>
+    <a href="http://www.youpuchina.com/shopList.html?key=businessCircleId&id=265&name=%E5%85%B6%E4%BB%96">其他商铺出租转让</a>
+
+    <a href="http://www.youpuchina.com/aboutUp.html">关于优铺</a>
+    <a href="http://www.youpuchina.com/joinUp.html">加盟优铺</a>
+    <a href="http://www.youpuchina.com/contactUp.html">联系优铺</a>
+    <a href="http://www.youpuchina.com/recruitUp.html">优铺招聘</a>
+    <a href="http://www.youpuchina.com/shopMap.html">网站地图</a>
+    <a href="http://www.zhongjinglianmeng.com/">中经联盟</a>
+
+    <h2>优铺控股旗下产品</h2>
+    <a href="http://www.youpuchina.com/"> 租铺宝</a>
+    <a href="http://youpu100.cn/"> 卖铺宝</a>
+    <a href="http://www.youpuchina.com/collegeUp.html"> 优铺商学院</a>
+
+    <p>版权所有：北京优铺网络科技有限公司 Copyright 2016 Beijing Youpu Network Technology Co., Ltd</p>
+    <p>京ICP备16035060号 客服电话：4008988808</p>
+  </div>
+</div>
 <!-- built files will be auto injected -->
 </body>
 </html>

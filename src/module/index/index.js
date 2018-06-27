@@ -10,10 +10,10 @@ Vue.prototype.$layer = layer(Vue);
 Vue.use(ElementUI);
 Vue.use(VueLazyload)
 /* eslint-disable no-new */
-Vue.use(VueLazyload, {
-  preLoad: 1.3,
+Vue.use(VueLazyload, { 
   error: "https://up-img.oss-cn-beijing.aliyuncs.com/11525861563_.pic_hd.jpg",
   loading: "https://up-img.oss-cn-beijing.aliyuncs.com/11525861563_.pic_hd.jpg",
+  preLoad: 1.3,
   attempt: 1
 })
 

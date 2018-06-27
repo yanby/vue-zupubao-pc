@@ -14,12 +14,6 @@
                 <div class="seek_right">
                     <h1>在线委托转铺平均<span>32</span>天成功转出</h1>
                     <h3>专属转铺顾问竭诚为您服务</h3>
-                    <!-- <ul>
-                        <li><img src="./images/duo.png"></li>
-                        <li><img src="./images/kuai.png"></li>
-                        <li><img src="./images/hao.png"></li>
-                        <li><img src="./images/shen.png"></li>
-                    </ul> -->
                     <dl>
                         <dt>多</dt>
                         <dd>
@@ -142,21 +136,11 @@ export default {
         // 我要委托接口封装
         turnBtn(type) {
             let _this = this
-            // 手机号码验证
-            // let reg=/^1\d{10}$/;
             var reg = /^[1][3,4,5,7,8][0-9]{9}$/; 
             if(this.telVal == ""){
                  _this.$layer.msg("请输入手机号码");
-                // this.$message({
-                //     message: '请输入手机号码',
-                //     type: 'error'
-                // });
             }else if(!reg.test(this.telVal)){
                 _this.$layer.msg("请输入正确手机号");
-                // this.$message({
-                //     message: '请输入正确手机号',
-                //     type: 'error'
-                // });
             }else {
                 // 接口调用
                 let url =  _this.api + '/show/addCutomer'
@@ -165,23 +149,16 @@ export default {
                     method: 'post',
                     params: {
                         account: _this.telVal,
-                        type: "2"
+                        type: "2",
+                        source: "3"
                     }
                 }).then(data => {
                     // console.log(data);
                     if(data.data.code == 200 && data.data.flag == "success"){
                         _this.$layer.msg(data.data.msg);
-                        // this.$message({
-                        //     message: data.data.msg,
-                        //     type: 'success'
-                        // });
                         _this.telVal = "";
                     } else if(data.data.code == 200){
                         _this.$layer.msg(data.data.msg);
-                       // this.$message({
-                       //      message: data.data.msg,
-                       //      // type: 'success'
-                       //  });
                         _this.telVal = "";
                     }
                 }).catch(err => {
@@ -190,7 +167,8 @@ export default {
             }
         },     
     },
-    created() {       
+    created() {
+        this.telVal = window.localStorage.getItem("iphone");        
         // 保存全局地址
         this.api = url;
         // 接口调用
@@ -204,21 +182,26 @@ export default {
 input::-webkit-input-placeholder{
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input::-moz-placeholder{   /* Mozilla Firefox 19+ */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 .seek_wrap{
     width: 100%;
+    font-family: "KaiGenGothicSC-Light";
 }
 .seek_box{
     width: 100%;
@@ -230,7 +213,6 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     .seek_box1{
         width: 1200px;
         height: 525px;
-        /*background: red;*/
         margin: 0 auto;
         padding-top: .1px;
         .box_free{
@@ -246,6 +228,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 font-size: 24px;
                 text-align: center;
                 font-weight: 600;
+                font-family: "KaiGenGothicSC-Light";
             }
             input{
                 height: 46px;
@@ -254,12 +237,14 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 border-radius: 4px;
                 margin-bottom: 26px;
                 padding-left: 8px;
+                font-family: "KaiGenGothicSC-Light";
             }
             h5{
                 color: #666;
                 margin-top: 40px;
                 margin-bottom: 8px;
                 font-size: 16px;
+                font-family: "KaiGenGothicSC-Light";
                 span{
                     color: #E8584F;
                 }
@@ -274,36 +259,41 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 text-align: center;
                 margin-bottom: 40px;
                 cursor: pointer;
+                font-family: "KaiGenGothicSC-Light";
             }
             h6{
                 text-align: center;
                 color: #333;
                 font-size: 16px;
                 font-weight: 400;
+                font-family: "KaiGenGothicSC-Light";
             }
         }
     }
 }
 .seek_right{
     width: 722px;
-    height: 400px;
+    height: 300px;
     float: right;
     margin-top: 80px;
     color: #fff;
+    font-family: "KaiGenGothicSC-Light";
     h1{
         font-size: 48px;
         color: #fff;
         font-weight: 600;
+        font-family: "KaiGenGothicSC-Light";
         span{
             color: #E8584F;
+            font-family: "KaiGenGothicSC-Light";
         }
     }
     h3{
         font-size: 22px;
         text-align: center;
         margin-top: 40px;
-        font-weight: 300;
         margin-bottom: 72px;
+        font-family: "KaiGenGothicSC-Light";
     }
     /*ul{
         margin-top: 70px;
@@ -317,13 +307,10 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     }*/
     dl{
         width: 130px;
-        /*height: 140px;*/
-        /*background: pink;*/
         float: left;
         margin-right: 50px;
         dt{
             width: 62px;
-            /*height: 62px;*/
             font-size: 34px;
             line-height: 62px;
             text-align: center;
@@ -332,15 +319,16 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
             border-radius: 50%;
             margin-left: 34px;
             margin-bottom: 23px;
+            font-family: "KaiGenGothicSC-Light";
         }
-        dd{
-            
+        dd{          
             p{
                 font-size: 20px;
                 color: #fff;
                 text-align: center;
                 margin-bottom: 10px;
                 font-weight: 300;
+                font-family: "KaiGenGothicSC-Light";
             }
         }
     }
@@ -362,17 +350,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
         margin-bottom: 44px;
         text-align: center;
         font-weight: 600;
+        font-family: "KaiGenGothicSC-Light";
     }
-    /*ul{
-        li{
-            float: left;
-            margin-right: 40px;
-            margin-bottom: 100px;            
-        }
-        :nth-child(4){
-            margin-right: 0px;
-        }
-    }*/
     dl{
         width:259px; height:240px;                   
         background:rgba(255,255,255,1);                   
@@ -398,10 +377,9 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 color: #000;
                 font-size: 14px;
                 width: 230px;
-                /*background: red;*/
                 margin-left: 15px;
+                font-family: "KaiGenGothicSC-Light";
             }
-
         }
     }
     dl:nth-child(5){

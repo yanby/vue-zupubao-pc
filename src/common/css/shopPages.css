@@ -10,9 +10,11 @@
   height: 38px;
   width: 38px;
   line-height: 38px;
+  border: 1px solid #D8D8D8;
 }
 .page .el-pagination .el-pager li.active {
   background: #224e8f !important;
+  border: 1px solid #D8D8D8;
 }
 
 /*# sourceMappingURL=shopPages.css.map */

@@ -1,14 +1,13 @@
 <template>
 <div id="app">
-    <Nav></Nav> 
+    <Nav></Nav>
     <div class="login_bg">
         <div class="login_box">
             <ul>
                 <li><a href="index.html">首页</a>></li>
                 <li>用户登录</li>
             </ul>
-
-            <div class="login_wrap">           
+            <div class="login_wrap">
                 <table>
                     <tr>
                         <td class="td1">手机号码</td>
@@ -83,55 +82,22 @@ export default {
         }
     },
     mounted(){
-     
+
     },
     methods:{
-        // keyVal(e) {
-        //     var phoneNum = this.phoneVal.trim();
-        //     //如果是删除按键，则什么都不做
-        //     if (e.keyCode === 8) {
-        //       this.phoneVal = phoneNum;
-        //       return;
-        //     }
-
-        //     var len = phoneNum.length;
-        //     if (len === 3 || len === 8) {
-        //       phoneNum += '-';
-        //       this.phoneVal = phoneNum;
-        //     }
-        // },
-
         //获取验证码
         sendcode() {
-            // let reg=/^1([38]\d|4[57]|5[0-35-9]|7[06-8])(\-\d{4}){2}$/;
-            var reg = /^[1][3,4,5,7,8][0-9]{9}$/; 
+            var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
             let _this = this;
             if(this.phoneVal==''){
-                // this.$message({
-                //     message: '请输入手机号',
-                //     type: 'error'
-                // });
-
                 this.text_tel = '请输入手机号'
-
             }else if(!reg.test(this.phoneVal)){
-                // this.$message({
-                //     message: '请输入正确的手机号',
-                //     type: 'error'
-                // });
-
                 this.text_tel = '请输入正确的手机号'
-
             }else{
-                // this.time=60;
-                // this.disabled=true;
-                // this.timer();
-
                 // 接口调用
                 let _this = this
                 let url =  _this.api + '/user/sendsms'
                 let str = _this.phoneVal;
-
                 let num = str.replace(/[^0-9]/ig,"");
 
                 // console.log(num);
@@ -142,7 +108,7 @@ export default {
                         phoneNumber: num
                     }
                 }).then(data => {
-                    console.log(data);
+                    // console.log(data);
                     if(data.data.code = 200){
                         this.text_tel = "";
                         this.time=60;
@@ -171,32 +137,18 @@ export default {
 
         // 点击登录按钮
         loginBtn() {
-            // let reg=/^1([38]\d|4[57]|5[0-35-9]|7[06-8])(\-\d{4}){2}$/;
-            var reg = /^[1][3,4,5,7,8][0-9]{9}$/; 
+            var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
             let _this = this;
             if(this.phoneVal==''){
-               // this.$message({
-               //      message: '请输入手机号',
-               //      type: 'error'
-               //  });
                 this.text_tel = '请输入手机号'
             }else if(!reg.test(this.phoneVal)){
-                // this.$message({
-                //     message: '请输入正确的手机号',
-                //     type: 'error'
-                // });
-
                 this.text_tel = '请输入正确的手机号'
             }else if(this.securityCode == ""){
-                // this.$message({
-                //     message: '请输入验证码',
-                //     type: 'error'
-                // });
                 this.text_code = '请输入验证码'
-            }else{ 
-                this.text_code = "" 
-                this.text_tel = "" 
-                let url = _this.api + '/login'
+            }else{
+                this.text_code = ""
+                this.text_tel = ""
+                let url = _this.api + '/login';
                 let str = _this.phoneVal;
                 let num = str.replace(/[^0-9]/ig,"");
                 axios(url,{
@@ -206,47 +158,28 @@ export default {
                         account: num,
                         password: _this.securityCode,
                     }
-
                 }).then(data => {
-
-                    console.log(data);
+                    // console.log(data);
                     let tel = data.data.phone
-
                     if(data.data.code == 200){
-
-                        this.$message({
-                            message: '登录成功',
-                            type: 'success'
-                        });
-    
+                        // window.location.href = "http://www.youpuchina.com/member.html";
                         var filename=window.location.href;
                         if(filename.indexOf("goId=1") != -1){
                             window.history.back(-1);
                         }else{
-                            window.location.href = "/module/mine.html"; 
-                            
+                            // window.location.href = "http://www.youpuchina.com/member.html";
+                            window.location.href = "member.html";
                         }
-
                         window.localStorage.setItem("token",data.data.token);
                         window.localStorage.setItem("iphone",data.data.phone);
                         window.localStorage.setItem("pvCount",data.data.pvCount);
-
-                        // _this.$store.commit("login",data.data.token);
-                        // _this.$router.go(-1)
                     }else if(data.data.code == 500){
-                      // this.$message({
-                      //       message: '请输入正确验证码',
-                      //       type: 'error'
-                      //   });
-
                       this.text_code = '请输入正确验证码'
                     } else{
                         this.$message({
                             message: '登录失败',
                             // type: 'success'
                         });
-
-
                     }
                 }).catch(err => {
                     console.log(err)
@@ -263,27 +196,14 @@ export default {
             }
 
             // let reg=/^1([38]\d|4[57]|5[0-35-9]|7[06-8])(\-\d{4}){2}$/;
-            var reg = /^[1][3,4,5,7,8][0-9]{9}$/; 
+            var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
             let _this = this;
             if(this.phoneVal==''){
-                // this.$message({
-                //     message: '请输入手机号',
-                //     type: 'error'
-                // });
-                // this.showCode = true;
-
                 this.text_tel = '请输入手机号'
-
             }else if(!reg.test(this.phoneVal)){
-                // this.$message({
-                //     message: '手机格式不正确',
-                //     type: 'error'
-                // });
                 this.text_tel = '请输入正确的手机号'
-
             }else{
                 this.text_tel = ''
-
             }
         },
         // 验证码失去焦点
@@ -291,22 +211,13 @@ export default {
 
             let codeReg = /\d{6}/;
             let _this = this;
-            
-             if(this.securityCode == ""){
-                // this.$message({
-                //     message: '请输入验证码',
-                //     type: 'error'
-                // });
+
+            if(this.securityCode == ""){
                 this.text_code = '请输入验证码'
-            }else if(!codeReg.test(this.securityCode)){ 
-                // this.$message({
-                //     message: '验证码格式不正确',
-                //     type: 'error'
-                // });
+            }else if(!codeReg.test(this.securityCode)){
                 this.text_code = '请输入正确验证码'
             }else{
                 this.text_code = ''
-
             }
         },
 
@@ -317,21 +228,13 @@ export default {
                 // alert(1)
                 this.showCode = false;
             }
-        }     
+        }
     },
-    created() {       
+    created() {
         // 保存全局地址
         this.api = url;
     },
     watch: {
-        // Vue.use(VueLazyload, {
-        //     preLoad: 1.3,
-        //      error: 'dist/error.png',
-        //      loading: 'dist/loading.gif',
-        //      attempt: 1,
-        //      // the default is ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend']
-        //      listenEvents: [ 'scroll' ]
-        // })
     }
 }
 </script>
@@ -341,18 +244,22 @@ export default {
 input::-webkit-input-placeholder{
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input::-moz-placeholder{   /* Mozilla Firefox 19+ */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 
 .login_bg{
@@ -361,11 +268,11 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     background: url(images/login_bg.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    padding-top: 0.1px; 
+    padding-top: 0.1px;
     .login_wrap{
         width: 935px;
         height: 370px;
-        margin: 110px auto 0px; 
+        margin: 110px auto 0px;
         background: url(images/youpu_bg.png);
         background-size: 100% 100%;
         background-repeat: no-repeat;
@@ -375,28 +282,25 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 table{
     width: 500px;
     height: 280px;
-    /*background: red;*/
     margin-left: 50px;
     margin-top: 44px;
     float: left;
     .td1{
         width: 100px;
         color: #224E8F;
-        /*background: pink;*/
     }
     input{
-        height: 40px;
+        line-height: 40px;
         border-radius: 4px;
         border: 1px solid #224E8F;
         outline: none;
+        font-family: "KaiGenGothicSC-Light";
     }
     .login_tel{
         width: 208px;
-        /*height: 40px;*/
     }
     .login_code{
         width: 343px;
-        /*height: 40px;*/
     }
     .get_code{
         display: inline-block;
@@ -406,23 +310,24 @@ table{
         text-align: center;
         line-height: 42px;
         font-size: 16px;
-        /*font-weight: 500;*/
         color: #fff;
         border-radius: 4px;
         margin-left: 16px;
-        /*margin-top: 5px;*/
         position: relative;
         top: 3px;
+        font-family: "KaiGenGothicSC-Light";
     }
     .text_promp{
         font-size: 14px;
         color: #333;
         padding-left: 6px;
+        font-family: "KaiGenGothicSC-Light";
     }
     .text_verify{
         font-size: 14px;
         color: #E11212;
         padding-left: 6px;
+        font-family: "KaiGenGothicSC-Light";
     }
     .login_btn{
         width: 220px;
@@ -434,6 +339,7 @@ table{
         color: #fff;
         font-size: 18px;
         cursor: pointer;
+        font-family: "KaiGenGothicSC-Light";
     }
 }
 .imgs-box {
@@ -454,10 +360,12 @@ table{
             float: left;
             color: #fff;
             font-size: 14px;
+            font-family: "KaiGenGothicSC-Light";
             a{
                 color: #fff;
                 font-size: 14px;
                 font-weight: 400;
+                font-family: "KaiGenGothicSC-Light";
             }
         }
     }

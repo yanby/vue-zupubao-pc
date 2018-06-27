@@ -6,11 +6,11 @@
       <div class="about-content clearfix">
         <div class="about-left left">
           <ul>
-            <li class="cur"><b></b>关于优铺</li>
-            <li><b></b>加盟优铺</li>
-            <li><b></b>优铺商学院</li>
-            <li><b></b>联系优铺</li>
-            <li><b></b>优铺招聘</li>
+            <li class="cur"><a href="aboutUp.html"><b></b>关于优铺</a></li>
+            <li><a href="joinUp.html"><b></b>加盟优铺</a></li>
+            <li><a href="collegeUp.html"><b></b>优铺商学院</a></li>
+            <li><a href="contactUp.html"><b></b>联系优铺</a></li>
+            <li><a href="recruitUp.html"><b></b>优铺招聘</a></li>
           </ul>
         </div>
         <div class="about-right right">
@@ -43,10 +43,25 @@
                 <div class="chuangshi-msg clearfix">
                   <div class="img left"></div>
                   <div class="txt right">
-                    <h2>优铺 董事长，陈云峰</h2>
-                    <p>优铺创始人，2008年创立中经联盟，任秘书长，担任中房经联商业地产专委会主席、北京支持雄安产业发展促进会副会长、天津工商联房地产商会商业地产专委会执行主任、河北房协商业地产专委会主任，上海市长宁区13届政协委员。</p>
-                    <p>曾经担任国美电器总部营销总经理,历任鹏润地产营销总监、项目总经理、集团副总裁,华业地产副总裁，在商业服务业和地产业耕耘多年。</p>
-                    <p>2016年创立优铺网，致力于商铺租售平台打造。北京理工大学客座教授、CCTV、BTV、中央人民广播电台经济之声房地产特约评论员，新浪乐居财经评论员。</p>
+                    <h2><span>陈云峰</span> | 现任优铺网 创始人、董事长，中经联盟 创始人、秘书长。</h2>
+                    <h4>职业经历</h4>
+                    <p>曾经是国美电器的核心人物，担任国美电器北京总部第一任全国营销总监和管理中心总经理；历任天津国美电器第一任总经理、上海国美电器总经理，香港国美电器开业副总指挥，为国美的发展立下汗马功劳。</p>
+                    <p>2005年转战房地产行业，亲历中国房地产飞速发展的18年。曾任北京鹏润地产开发有限公司（明天房地产）营销总监、项目总经理、集团副总裁, 家乐园集团总裁，上市公司华业地产副总裁，负责北京、深圳、长春、大连、武汉、三亚营销与开发工作。</p>
+                    <p>2008年，牵头创立中国房地产业行业最具影响力的主流社团<span>——</span>中经联盟，业内称为中国房地产经理人联盟，担任秘书长。</p>
+                    <p>2016年，开始创业，创立优铺网，担任董事长。</p>
+                    <p>2018年，成立优铺商学院，担任董事长。</p>
+                    <h4>社会职务</h4>
+                    <p>中经联盟（中国房地产经理人联盟）秘书长</p>
+                    <p>北京促进雄安产业发展促进会副会长</p>
+                    <p>上海长宁区13届政协委员</p>
+                    <p>中房经联商业地产专委会主席</p>
+                    <p>中国房地产业协会商业地产专业委员会 副秘书长</p>
+                    <p>天津工商联房地产商会商业地产专委会执行主任</p>
+                    <p>河北省住宅与房地产协会商业地产专业委员会主任</p>
+                    <p>北京理工大学客座教授</p>
+                    <P>CCTV、BTV、中央人民广播电台特邀评论员</P>
+                    <P>河北工业大学MBA实践指导教授</P>
+                    <P>河北工业大学北京校友会副会长、秘书长</P>
                   </div>
                 </div>
               </div>
@@ -700,7 +715,7 @@ import {getQueryString,GetRequest,url} from 'common/js/common.js'
         Footer
     },
     mounted(){
-      this.id = getQueryString("id");
+
       //左边栏浮动
       window.onscroll = function(){
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -709,73 +724,6 @@ import {getQueryString,GetRequest,url} from 'common/js/common.js'
         }else{
           $(".about-left").removeClass("cur");
         }
-      }
-      //左侧栏点击切换
-      $(".about-left ul li").on("click",function () {
-        var index = $(this).index();
-        $('html , body').animate({scrollTop: 100},100);
-        $(this).addClass("cur").siblings().removeClass("cur");
-        $(".about-right>ul>li").eq(index).addClass("cur").siblings().removeClass("cur");
-        if(index == 0){
-          $(".crumbs").html("<a href='index.html'>首页</a>-关于优铺");
-        }else if(index == 1){
-          $(".crumbs").html("<a href='index.html'>首页</a>-加盟优铺");
-        } else if(index == 2){
-          $(".crumbs").html("<a href='index.html'>首页</a>-优铺商学院");
-        }else if(index == 3){
-          $(".crumbs").html("<a href='index.html'>首页</a>-联系优铺");
-        }else if(index == 4){
-          $(".crumbs").html("<a href='index.html'>首页</a>-优铺招聘");
-        }
-      })
-
-      //优铺招聘页面tab切换
-      $(".xuanzhi .tab span").hover(function () {
-        var index = $(this).index();
-        $(this).addClass("cur").siblings().removeClass("cur");
-        $(".xuanzhi .zhaoping-msg div").eq(index).addClass("cur").siblings().removeClass("cur");
-      })
-      $(".kaidian .tab span").hover(function () {
-        var index = $(this).index();
-        $(this).addClass("cur").siblings().removeClass("cur");
-        $(".kaidian .zhaoping-msg div").eq(index).addClass("cur").siblings().removeClass("cur");
-      })
-      $(".hepu .tab span").hover(function () {
-        var index = $(this).index();
-        $(this).addClass("cur").siblings().removeClass("cur");
-        $(".hepu .zhaoping-msg div").eq(index).addClass("cur").siblings().removeClass("cur");
-      })
-      $(".dianhua .tab span").hover(function () {
-        var index = $(this).index();
-        $(this).addClass("cur").siblings().removeClass("cur");
-        $(".dianhua .zhaoping-msg div").eq(index).addClass("cur").siblings().removeClass("cur");
-      })
-      $(".jizhe .tab span").hover(function () {
-        var index = $(this).index();
-        $(this).addClass("cur").siblings().removeClass("cur");
-        $(".jizhe .zhaoping-msg div").eq(index).addClass("cur").siblings().removeClass("cur");
-      })
-      $(".anchang .tab span").hover(function () {
-        var index = $(this).index();
-        $(this).addClass("cur").siblings().removeClass("cur");
-        $(".anchang .zhaoping-msg div").eq(index).addClass("cur").siblings().removeClass("cur");
-      })
-      $(".caiwu .tab span").hover(function () {
-        var index = $(this).index();
-        $(this).addClass("cur").siblings().removeClass("cur");
-        $(".caiwu .zhaoping-msg div").eq(index).addClass("cur").siblings().removeClass("cur");
-      })
-
-      if(this.id == 1){
-        $(".about-left ul li").eq(0).click();
-      }else if(this.id == 2){
-        $(".about-left ul li").eq(1).click();
-      }else if(this.id == 3){
-        $(".about-left ul li").eq(2).click();
-      }else if(this.id == 4){
-        $(".about-left ul li").eq(3).click();
-      }else if(this.id == 5){
-        $(".about-left ul li").eq(4).click();
       }
     },
     updated(){

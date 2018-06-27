@@ -1,10 +1,26 @@
 <template>
   <div id="app">
     <Nav></Nav>
+    <Buy v-if="buy===1 || buy===2" :child-buy="buy" @buyFun="myFun()"></Buy>
+    <div class="model-wrap" v-if="modelPu===1">
+      <div class="model">
+        <h2>您找到满意的铺源了吗？</h2>
+        <p>输入手机号专家免费帮您找铺</p>
+        <div class="input"><input v-model="modelTxt" type="text" placeholder="输入手机号，专家免费帮您找铺"><span>*请输入手机号</span></div>
+        <div class="btn"><span @click="zhaoFun()">我要找铺</span><b @click="zhuanFun()">我要转铺</b></div>
+        <div class="close" @click="modelPu=0"></div>
+      </div>
+    </div>
+    <div class="model-inner" v-if="modelSuccee===1">
+      <div class="model">
+        <p>委托成功,优铺客服会在<span>24小时内</span>与您联系， 请保持手机畅通！</p>
+        <div @click="modelSuccee=0">我知道了</div>
+      </div>
+    </div>
     <div class="shopDetail w1200">
       <h2><span><a href="index.html">首页</a>><a href="shopList.html">北京</a>>{{wzxx.areaName}}>{{businessAreaName}}>商铺详情</span>
         <div class="search">
-          <input type="text" placeholder="区域/面积/租金/商铺编号" v-model="search" @keyup.enter="searchFun()"><button @click="searchFun()"></button>
+          <input type="text" placeholder="区域/商圈/业态/商铺编号" v-model="search" @keyup.enter="searchFun()"><button @click="searchFun()"></button>
         </div>
       </h2>
       <div class="shopDetail-msg">
@@ -33,11 +49,11 @@
             </div>
             <ul class="price">
               <li>
-                <p><span>{{monthlyRent}}</span> <b>{{unitMonthRent}}</b></p>
-                <p>月租金</p>
+                <p><span>{{monthlyRent}} </span><i>{{unitMonthRent}}</i> <s>{{dailyRent}} {{unitDailyRent}}</s></p>
+                <p>租金</p>
                 <div class="line"></div>
               </li>
-              <li>
+              <li v-if="dailyRent">
                 <p><span>{{dailyRent}}</span> <b>{{unitDailyRent}}</b></p>
                 <p>日租金</p>
                 <div class="line"></div>
@@ -56,6 +72,7 @@
             </div>
             <div v-if="tel===1" class="telPhone" @click="telPhone()">
               <span></span><b>查看店主电话</b>
+              <div class="telPhone-msg">已有{{browseCount}}人浏览了本铺，建议尽快联系看铺 <i class="jiao"></i></div>
             </div>
             <div v-else-if="tel===2" class="telPhone">
               <span></span><b>{{iphone}}</b>
@@ -194,6 +211,7 @@ import qs from 'qs';
 import axios from 'axios';
 import $ from "common/js/jquery.min.js";
 import Nav from 'components/Nav/Nav'
+import Buy from 'components/Buy/Buy'
 import Navbar from 'components/Navbar/Navbar'
 import Footer from 'components/Footer/Footer'
 import {getQueryString,GetRequest,url} from 'common/js/common.js'
@@ -202,6 +220,12 @@ export default {
     name: 'app',
     data(){
       return{
+        buy: false,
+        pvCount: "",
+        browseCount: "",//多少人看了该商铺
+        modelTxt: "",
+        modelSuccee:"",//委托成功
+        modelPu: "",//找铺转铺
         certificate: false,//证件显示
         advantage: false,//本店优势显示
         issue: false,//过往经营最大问题显示
@@ -246,6 +270,7 @@ export default {
     },
     components: {
       Nav,
+      Buy,
       Navbar,
       Footer
     },
@@ -253,6 +278,13 @@ export default {
 
     },
     mounted(){
+      var that = this;
+      //没有登录30秒后弹框
+      if(localStorage.token == undefined){
+        setTimeout(function () {
+          that.modelPu = 1;
+        },30000)
+      }
       this.shopId = getQueryString("shopId");
       this.init();//初始化信息
       this.dataPost();//判断有没有查看过该商铺
@@ -268,6 +300,65 @@ export default {
       }
     },
     methods: {
+      myFun(){
+        this.buy = false;
+      },
+      zhaoFun(){
+        let that = this;
+        let kong = /^\s*$/g;
+        let reg=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if(kong.test(this.modelTxt)){
+          $(".input span").show();
+          $(".input span").html("*请输入手机号");
+        }else if(!reg.test(this.modelTxt)){
+          $(".input span").show();
+          $(".input span").html("*请输入正确手机号");
+        }else{
+          axios(this.changeData() + '/show/addCutomer',{
+            method: 'post',
+            params: {
+              account: this.modelTxt,
+              type: '1',
+              source: "3"
+            }
+          }).then(data => {
+            if(data.data.code == 200){
+              that.modelPu = 0;
+              that.modelSuccee = 1;
+            }
+          }).catch(err => {
+            console.log(err)
+          });
+        }
+      },
+      zhuanFun(){
+        let that = this;
+        let kong = /^\s*$/g;
+        let reg=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if(kong.test(this.modelTxt)){
+          $(".input span").show();
+          $(".input span").html("*请输入手机号");
+        }else if(!reg.test(this.modelTxt)){
+          $(".input span").show();
+          $(".input span").html("*请输入正确手机号");
+        }else{
+          axios(this.changeData() + '/show/addCutomer',{
+            method: 'post',
+            params: {
+              account: this.modelTxt,
+              type: '2',
+              source: "3"
+            }
+          }).then(data => {
+            if(data.data.code == 200){
+              that.modelPu = 0;
+              that.modelSuccee = 1;
+            }
+          }).catch(err => {
+            console.log(err)
+          });
+        }
+      },
       certificateFun(){ //已有证件点击详情
         this.certificate = true;
       },
@@ -295,6 +386,7 @@ export default {
         })
         .then(res => {
           console.log(res)
+          this.browseCount = res.data.browseCount;
           this.imgs = res.data.imgs;//图片
           this.dailyRent = res.data.dailyRent;
           this.monthlyRent = res.data.monthlyRent;
@@ -390,6 +482,7 @@ export default {
         var num = 0;
         var len = this.imgs.length;
 
+        $(".big ul li").eq(0).show().siblings().hide();
         $(".small ol li").eq(index).addClass("cur").siblings().removeClass("cur");
         $(".small ol li").on("click",function () {
           index = $(this).index();
@@ -409,8 +502,7 @@ export default {
               $(".small ol li:lt("+small+")").show();
             }
           }
-          console.log(num)
-          console.log(index+"---")
+
           $(".small ol li").eq(index).addClass("cur").siblings().removeClass("cur");
           $(".big ul li").eq(index).show().siblings().hide();
         })
@@ -428,8 +520,7 @@ export default {
               $(".small ol li:lt("+small+")").hide();
             }
           }
-          console.log(num)
-          console.log(index+"---")
+
           $(".small ol li").eq(index).addClass("cur").siblings().removeClass("cur");
           $(".big ul li").eq(index).show().siblings().hide();
         })
@@ -508,9 +599,10 @@ export default {
           console.log(res)
           if(res.data.code == 200){
             this.numIndex = res.data.count;
+            this.pvCount = res.data.pvCount;
             if(this.checkedLook != 'true'){
               if(this.bolClick){
-                that.$alert('您今日还可免费查看 <span class="red">'+that.numIndex+'</span> 套商铺（共10套/日）', {
+                that.$alert('您今日还可免费查看 <span class="red">'+that.numIndex+'</span> 套商铺（共'+that.pvCount+'套/日）', {
                   confirmButtonText: '确定',
                   dangerouslyUseHTMLString: true,
                   center: true
@@ -520,9 +612,21 @@ export default {
             }
             //如果次数等于0并且没有查看过并且
             if(res.data.count == 0 && this.checkedLook == false && this.countNum == false){
-              that.$alert('温馨提示，您今日10次看铺机会已用完，可明天再来哦~', {
-                confirmButtonText: '明天再来',
+              // that.$alert('温馨提示，您今日'+that.pvCount+'次看铺机会已用完，可明天再来哦~', {
+              //   confirmButtonText: '明天再来',
+              //
+              //   center: true
+              // });
+
+              that.$confirm('温馨提示，您今日'+that.pvCount+'次看铺机会已用完，可明天再来哦~', {
+                confirmButtonText: '立即开通',
+                cancelButtonText: '明天再来',
                 center: true
+              }).then(() => {
+                //立即开通
+                that.buy = 1;
+              }).catch(() => {
+               //明天再来
               });
             }else{
               this.add = 2;
@@ -556,9 +660,10 @@ export default {
           if(res.data.code == "200"){
             $('html,body').animate({scrollTop:top}, 100);
             this.numIndex = res.data.count;
+            this.pvCount = res.data.pvCount;
             if(this.checkedLook != 'true'){
               if(this.bolClick){
-                that.$alert('您今日还可免费查看 <span class="red">'+that.numIndex+'</span> 套商铺（共10套/日）', {
+                that.$alert('您今日还可免费查看 <span class="red">'+that.numIndex+'</span> 套商铺（共'+that.pvCount+'套/日）', {
                   confirmButtonText: '确定',
                   dangerouslyUseHTMLString: true,
                   center: true
@@ -567,9 +672,19 @@ export default {
               }
             }
             if(res.data.count == 0 && this.checkedLook == false && this.countNum == false){
-              that.$alert('温馨提示，您今日10次看铺机会已用完，可明天再来哦~', {
-                confirmButtonText: '明天再来',
+              // that.$alert('温馨提示，您今日'+that.pvCount+'次看铺机会已用完，可明天再来哦~', {
+              //   confirmButtonText: '明天再来',
+              //   center: true
+              // });
+              that.$confirm('温馨提示，您今日'+that.pvCount+'次看铺机会已用完，可明天再来哦~', {
+                confirmButtonText: '立即开通',
+                cancelButtonText: '明天再来',
                 center: true
+              }).then(() => {
+                //立即开通
+                that.buy = 1;
+              }).catch(() => {
+                //明天再来
               });
             }else{
               this.map();
@@ -601,9 +716,10 @@ export default {
           console.log(res)
           if(res.data.code=="200"){
             this.numIndex = res.data.count;
+            this.pvCount = res.data.pvCount;
             if(this.checkedLook != 'true'){
               if(this.bolClick){
-                that.$alert('您今日还可免费查看 <span class="red">'+that.numIndex+'</span> 套商铺（共10套/日）', {
+                that.$alert('您今日还可免费查看 <span class="red">'+that.numIndex+'</span> 套商铺（共'+that.pvCount+'套/日）', {
                   confirmButtonText: '确定',
                   dangerouslyUseHTMLString: true,
                   center: true
@@ -612,9 +728,19 @@ export default {
               }
             }
             if(res.data.count == 0 && this.checkedLook == false && this.countNum == false){
-              that.$alert('温馨提示，您今日10次看铺机会已用完，可明天再来哦~', {
-                confirmButtonText: '明天再来',
+              // that.$alert('温馨提示，您今日'+that.pvCount+'次看铺机会已用完，可明天再来哦~', {
+              //   confirmButtonText: '明天再来',
+              //   center: true
+              // });
+              that.$confirm('温馨提示，您今日'+that.pvCount+'次看铺机会已用完，可明天再来哦~', {
+                confirmButtonText: '立即开通',
+                cancelButtonText: '明天再来',
                 center: true
+              }).then(() => {
+                //立即开通
+                that.buy = 1;
+              }).catch(() => {
+                //明天再来
               });
             }else{
               this.tel=2;

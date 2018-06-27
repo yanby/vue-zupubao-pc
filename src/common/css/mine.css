@@ -1,7 +1,3 @@
-#app {
-  font: 14px/150% "Microsoft YaHei","\5b8b\4f53";
-  background: #fbfbfb;
-}
 #app .mine {
   margin-top: 20px;
   padding-bottom: 60px;
@@ -52,8 +48,14 @@
   color: #888;
   cursor: pointer;
 }
+#app .mine .mine-left .mine-list ul li a {
+  color: #888;
+}
 #app .mine .mine-left .mine-list ul li.cur {
   background: #224E8F;
+  color: #fff;
+}
+#app .mine .mine-left .mine-list ul li.cur a {
   color: #fff;
 }
 #app .mine .mine-right {
@@ -61,7 +63,7 @@
 }
 #app .mine .mine-right .noCollect {
   width: 940px;
-  min-height: 470px;
+  min-height: 550px;
   background: #fff;
   overflow: hidden;
 }
@@ -86,7 +88,7 @@
 #app .mine .mine-right .collect {
   padding: 0 42px;
   background: #fff;
-  min-height: 470px;
+  min-height: 550px;
 }
 #app .mine .mine-right .collect h3 {
   font-size: 24px;

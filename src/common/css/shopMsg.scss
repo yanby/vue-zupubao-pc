@@ -10,7 +10,7 @@
     margin-bottom: 20px;
     cursor: pointer;
     &:hover{
-      box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.18);
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
     }
     .img{
       width: 218px;
@@ -57,14 +57,14 @@
       }
     }
     .price{
-      width: 140px;
+      width: 160px;
       height: 164px;
       float: right;
       p{
         margin-top: 60px;
         margin-bottom: 14px;
         span{
-          font-size: 30px;
+          font-size: 24px;
           color: #D73D2F;
           font-weight: bold;
         }

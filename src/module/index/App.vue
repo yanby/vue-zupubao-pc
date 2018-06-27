@@ -4,8 +4,8 @@
       <!-- 轮播图 -->
       <div class="playImg">
           <el-carousel trigger="click" height="400px" :interval="5000">
-              <el-carousel-item v-for="(item,index) in lbtArr">
-                  <h3 @click="goNewInfo(item.artitleId,item.type)"><img :src="item.url"></h3>
+              <el-carousel-item v-for="(item,index) in picArr">
+                  <h3 @click="goNewInfo(item.artitleId,item.flag,item.urlPC)"><img :src="item.url"></h3>
                   <!-- <h3><img src="./images/lunbo.png"></h3> -->
               </el-carousel-item>
           </el-carousel>
@@ -46,61 +46,75 @@
       </div>
 
       <!-- 我要委托 -->
+      <div class="entrust_addBag">
       <div class="head_title">
-          <h2>我要委托</h2>
+          <div>
+            <i class="line-left"><img src="./images/line-left.png"></i>           
+            <h2>我要委托</h2>
+            <i class="line-right"><img src="./images/line-right.png"></i> 
+          </div>
           <h4>I WANT TO ENTRUST</h4>
-      </div>
-      <div class="entrust_wrap">
-          <div class="entrust_box">
-              <div class="entrust_input">
-                  <input type="text" name="" placeholder="请输入手机号" maxlength="11" v-model="telVal">
-                  <img src="./images/phone.png">
-              </div>
-              <div class="entrust_dl">
-                  <dl class="dl_left">
-                      <dt @click="seekBtn">委托找铺</dt>
-                      <dd>已有<span>{{this.seekShopObj}}</span>人委托找铺</dd>
-                  </dl>
-                  <dl class="dl_right">
-                      <dt @click="turnBtn">委托转铺</dt>
-                      <dd>已有<span>{{this.turnShopObj}}</span>人委托转铺</dd>
-                  </dl>
-              </div>
-          </div>          
+      </div>      
+        <div class="entrust_wrap">
+            <div class="entrust_box">
+                <div class="entrust_input">
+                    <input type="text" name="" placeholder="请输入手机号" maxlength="11" v-model="telVal">
+                    <img src="./images/phone.png">
+                </div>
+                <div class="entrust_dl">
+                    <dl class="dl_left">
+                        <dt @click="seekBtn">委托找铺</dt>
+                        <dd>已有<span>{{this.seekShopObj}}</span>人委托找铺</dd>
+                    </dl>
+                    <dl class="dl_right">
+                        <dt @click="turnBtn">委托转铺</dt>
+                        <dd>已有<span>{{this.turnShopObj}}</span>人委托转铺</dd>
+                    </dl>
+                </div>
+            </div>          
+        </div>
       </div>
 
       <!-- 优选旺铺 -->
-      <div class="head_title">
-          <h2>优选旺铺</h2>
-          <h4>OPTIMIZATION WINPORT</h4>
-      </div>
-      <div class="shoplist_wrap clearfloat">
-          <div class="shoplist_dl" v-for="(item,index) in shopListArr" v-if="index < 8" @click="goShop(item.id)">
-              <dl>
-                  <dt>
-                      <!-- <img :src="item.img" alt=""> -->
-                      <img :src="item.img" alt="" v-if="isIEObj == 100">
-                      <img v-lazy="item.img" alt="" v-else>
-                  </dt>
-                  <dd>              
-                      <h3>{{item.title}}</h3>
-                      <p><b>月租金：</b><span class="span1">{{item.monthlyRent}}{{item.unit}}</span></p>
-                      <p><b>转让费：</b><span>{{item.transferFee}}</span>{{item.unitTransFerfee}}</p>
-                  </dd>
-              </dl>
-          </div>         
-      </div>
-      <div class="more_wrap">
-          <div class="more_box" @click="more_box">
-              更多<span>北京在转/在租商铺</span>
+      <div class="shoplist_addBag">
+          <div class="head_title">         
+              <div>
+                <i class="line-left"><img src="./images/line-left.png"></i>           
+                <h2>优选旺铺</h2>
+                <i class="line-right"><img src="./images/line-right.png"></i> 
+              </div>
+              <h4>OPTIMIZATION WINPORT</h4>
+          </div>
+          <div class="shoplist_wrap clearfloat">
+              <div class="shoplist_dl" v-for="(item,index) in shopListArr" v-if="index < 8" @click="goShop(item.id)">
+                  <dl>
+                      <dt>
+                          <img :src="item.img" alt="" v-if="isIEObj == 100" :onerror="defaultImg">
+                          <img v-lazy="item.img" alt="" v-else>
+                      </dt>
+                      <dd>              
+                          <h3>{{item.title}}</h3>
+                          <p><b>月租金：</b><span class="span1">{{item.monthlyRent}}{{item.unit}}</span></p>
+                          <p><b>转让费：</b><span>{{item.transferFee}}</span>{{item.unitTransFerfee}}</p>
+                      </dd>
+                  </dl>
+              </div>         
+          </div>
+          <div class="more_wrap">
+              <div class="more_box" @click="more_box">
+                  更多<span>北京在转/在租商铺</span>
+              </div>
           </div>
       </div>
-
       <!--  区域 -->
       <div class="area_wrap">
-          <div class="area_nav">
+          <div class="area_nav clearfloat">
               <ul>                  
-                  <li :class="{'on1' :tab1 == item.id}" @click="areaShopList(item.city,item.id)" v-for="(item,index) in cityList">{{item.city}}</li>
+                  <li :class="{'on1' :tab1 == item.id}" @click="areaShopList(item.city,item.id)" v-for="(item,index) in cityList">{{item.city}}
+                      <div class="caret" v-show="tab1 == item.id">
+                          <p></p>
+                      </div>
+                  </li>                     
               </ul>
           </div>
           <div class="shoplist_wrap clearfloat">
@@ -118,17 +132,21 @@
                   </dl>
               </div>         
           </div>           
-      </div>
-      <div class="more_wrap">
-          <div class="more_box" @click="more_box">更多</div>
+          <!-- </div> -->
+          <div class="more_wrap">
+              <div class="more_box" @click="more_box">更多</div>
+          </div>
       </div>
       
       <!-- 面积 -->
       <div class="square_wrap area_wrap">
           <div class="square_nav area_nav">
               <ul>                  
-                  <li :class="{'on2' :tab2 == item.id}" @click="squareShopList(item.id)" v-for="(item,index) in squareTitleArr" v-if="index > 0">{{item.name}}</li>
-                   <!-- <li :class="{'on2' :tab2 == item.id}" @click="squareShopList(item.id)" v-for="(item,index) in squareTitleArr">{{item.name}}</li> -->
+                  <li :class="{'on2' :tab2 == item.id}" @click="squareShopList(item.id)" v-for="(item,index) in squareTitleArr" v-if="index > 0">{{item.name}}
+                      <div class="caret" v-show="tab2 == item.id">
+                          <p></p>
+                      </div>
+                  </li>
               </ul>
           </div>
 
@@ -148,43 +166,49 @@
               </div>         
           </div>           
       </div>
-      <div class="more_wrap">
+      <div class="more_wrap square_more_wrap">
           <div class="more_box" @click="more_box">更多</div>
       </div>
 
       <!-- 投资机构 -->
-      <div class="head_title">
-          <h2>投资机构</h2>
-          <h4>INVESTMENT INSTITUTION</h4>
-      </div>
-      <div class="investment">
-          <ul>
-             <li @mouseenter="investment_li1"><img src="./images/one.png"></li>
-             <li @mouseenter="investment_li2"><img src="./images/two.png"></li>
-             <li @mouseenter="investment_li3"><img src="./images/three.png"></li>
-             <li @mouseenter="investment_li4"><img src="./images/four.png"></li>
-          </ul>
-          <div v-if="investment_info1">
-              <p>东方邦信置业有限公司成立于2013年12月27日。东方邦信置业系中国东方资产管理公司的二级子公司，由邦信资产管理有限公司100%控股，为邦信资产的房地产业务主要投资平台。</p>
-              <p>公司业务以房地产金融为主，以房地产开发和持有型物业经营管理为辅。打造一体化的房地产金融运作模式，形成封闭的全产业链，具有房地产融资、基金募集管理，住宅、商业、写字楼等地产投资开发，持有物业运营等全产业链运作能力。</p>
-          </div>
+      <div class="investment_wrap">
+        <div class="head_title">         
+            <div>
+              <i class="line-left"><img src="./images/line-left.png"></i>           
+              <h2>投资机构</h2>
+              <i class="line-right"><img src="./images/line-right.png"></i> 
+            </div>
+            <h4>INVESTMENT INSTITUTION</h4>
+        </div>
+        <div class="investment">
+            <ul>
+               <li @mouseenter="investment_li1"><img src="./images/one.png"></li>
+               <li @mouseenter="investment_li2"><img src="./images/two.png"></li>
+               <li @mouseenter="investment_li3"><img src="./images/three.png"></li>
+               <li @mouseenter="investment_li4"><img src="./images/four.png"></li>
+            </ul>
+            <div v-if="investment_info1">
+                <p>东方邦信置业有限公司成立于2013年12月27日。东方邦信置业系中国东方资产管理公司的二级子公司，由邦信资产管理有限公司100%控股，为邦信资产的房地产业务主要投资平台。</p>
+                <p>公司业务以房地产金融为主，以房地产开发和持有型物业经营管理为辅。打造一体化的房地产金融运作模式，形成封闭的全产业链，具有房地产融资、基金募集管理，住宅、商业、写字楼等地产投资开发，持有物业运营等全产业链运作能力。</p>
+            </div>
 
-          <div v-if="investment_info2">
-              <p>优享创智（5Lmeet）成立于 2015 年 12 月，由毛大庆博士发起成立。汇集了包括红杉资本中国基金、真格基金、信中利、歌斐资产、新加坡政府投资公司（GIC）、君紫资本、金运电气、领势投资、盛景网联、中融融优、东方华盖、高榕资本、北极光创投、大宏集团、泰合集团、百福嘉、创合汇、三磊设计、光辉建业、开封文投等数十个顶级投资机构及各领域知名企业家, 旗下主打的第一条产品线名称为“共享际”系列。</p>
-              <p>基于对中国大城市的城市更新、共享经济发展和地产领域创新这三个投资主题相融合所蕴藏的巨大战略机会的把握，共享际立志将城市存量资产升级改造为囊括居住、工作、健康、休闲、文化、娱乐等立体内容的一站式空间，由优享创智共享际开创的、继“联合办公”后又一个代表未来趋势的业态——共享生活方式应运而生。截止目前，优享创智已完成 A+轮融资，估值近 30 亿元人民币。</p>
-          </div>
+            <div v-if="investment_info2">
+                <p>优享创智（5Lmeet）成立于 2015 年 12 月，由毛大庆博士发起成立。汇集了包括红杉资本中国基金、真格基金、信中利、歌斐资产、新加坡政府投资公司（GIC）、君紫资本、金运电气、领势投资、盛景网联、中融融优、东方华盖、高榕资本、北极光创投、大宏集团、泰合集团、百福嘉、创合汇、三磊设计、光辉建业、开封文投等数十个顶级投资机构及各领域知名企业家, 旗下主打的第一条产品线名称为“共享际”系列。</p>
+                <p>基于对中国大城市的城市更新、共享经济发展和地产领域创新这三个投资主题相融合所蕴藏的巨大战略机会的把握，共享际立志将城市存量资产升级改造为囊括居住、工作、健康、休闲、文化、娱乐等立体内容的一站式空间，由优享创智共享际开创的、继“联合办公”后又一个代表未来趋势的业态——共享生活方式应运而生。截止目前，优享创智已完成 A+轮融资，估值近 30 亿元人民币。</p>
+            </div>
 
-          <div v-if="investment_info3">
-              <p>北京中投置地投资管理有限公司当前主要从事中国新型城镇化的投资运营管理，通过搭建城镇开发战略资源联盟，共同参与城镇新区的规划、建设和运营，实现“土地、人口、产业、资本”四要素的融合发展，推进中国新型城镇化内涵式、可持续发展。</p>
-              <p>北京中投置地投资管理有限公司董事长王军先生为中经联盟第6任轮值主席,庆峰基金合伙人,中海地产营销体系的创建者,中国新型城镇开发领军人物,现担任伟光汇通文化旅游投资有限公司总裁。</p>
-          </div>
+            <div v-if="investment_info3">
+                <p>北京中投置地投资管理有限公司当前主要从事中国新型城镇化的投资运营管理，通过搭建城镇开发战略资源联盟，共同参与城镇新区的规划、建设和运营，实现“土地、人口、产业、资本”四要素的融合发展，推进中国新型城镇化内涵式、可持续发展。</p>
+                <p>北京中投置地投资管理有限公司董事长王军先生为中经联盟第6任轮值主席,庆峰基金合伙人,中海地产营销体系的创建者,中国新型城镇开发领军人物,现担任伟光汇通文化旅游投资有限公司总裁。</p>
+            </div>
 
-          <div v-if="investment_info4">
-              <p>中经大业资本管理有限公司是依托中经联盟创立的投资基金，专注于扶持房地产高管创业。在房地产公司担任过项目总经理或集团副总裁职务，及在上市公司对外公告名单中的房地产高管，即是中经大业资本重点投资的对象，这些房地产高管具有专业的操盘经验、深厚的人脉资源和对行业的深刻理解，在从职业经理人转型创业的过程中具有非常高的成功率，优客工场毛大庆、高和资本苏鑫、中城新产业刘爱明等就是其中杰出的代表。</p>
-          </div>
-      </div>
-      <div class="ballWrap" v-if="ballWrap">
-        <p>{{this.ballWrapTxt}}</p>
+            <div v-if="investment_info4">
+                <p>中经大业资本管理有限公司是依托中经联盟创立的投资基金，专注于扶持房地产高管创业。在房地产公司担任过项目总经理或集团副总裁职务，及在上市公司对外公告名单中的房地产高管，即是中经大业资本重点投资的对象，这些房地产高管具有专业的操盘经验、深厚的人脉资源和对行业的深刻理解，在从职业经理人转型创业的过程中具有非常高的成功率，优客工场毛大庆、高和资本苏鑫、中城新产业刘爱明等就是其中杰出的代表。</p>
+            </div>
+        </div>
+        <div class="ballWrap" v-if="ballWrap">
+          <p>{{this.ballWrapTxt}}</p>
+        </div>
       </div>
       <Navbar></Navbar>
       <Footer></Footer>
@@ -209,6 +233,8 @@ export default {
   },
   data (){
     return {
+      src: require("./images/err.png"),
+      defaultImg: 'this.src="' + require('./images/err.png') + '"',
       tab1: '0',
       tab2: '21',
       // 全局地址
@@ -220,23 +246,23 @@ export default {
       // 区域表头
       cityList: [
           {
-            'id': '0',
+            'id': '122',
             'city': '朝阳',
 
           }, {
-            'id': '1',
+            'id': '2',
             'city': '海淀'
           }, {
-            'id': '2',
+            'id': '211',
             'city': '西城'
           }, {
-            'id': '3',
+            'id': '180',
             'city': '东城'
           }, {
-            'id': '4',
+            'id': '61',
             'city': '丰台'
           }, {
-            'id': '5',
+            'id': '114',
             'city': '石景山'
           }
       ],
@@ -249,74 +275,21 @@ export default {
             'imgId': 5,
             'title': "零售地产积极转型",
             'url': "http://up-img.oss-cn-beijing.aliyuncs.com/upload/WechatIMG74.png",
-            'type': false,
+            'flag': false,
           }, {
             'artitleId': 33,
             'imgId': 5,
             'title': "零售地产积极转型",
             'url': "https://up-img.oss-cn-beijing.aliyuncs.com/logo/11526287117_.pic_hd.jpg",
-            'type': true,
+            'flag': true,
           }, {
             'artitleId': 34,
             'imgId': 2,
             'title': "优铺商学院",
             'url': "https://up-img.oss-cn-beijing.aliyuncs.com/logo/31526282640_.pic_hd.jpg",
-            'type': false,
+            'flag': false,
           }
       ],
-
-      // 
-
-      // searchCity: [
-      //     {
-      //       'id': '0',
-      //       'city': '朝阳',
-
-      //     }, {
-      //       'id': '1',
-      //       'city': '海淀'
-      //     }, {
-      //       'id': '2',
-      //       'city': '西城'
-      //     }, {
-      //       'id': '3',
-      //       'city': '东城'
-      //     }, {
-      //       'id': '4',
-      //       'city': '丰台'
-      //     }, {
-      //       'id': '5',
-      //       'city': '通州'
-      //     }, {
-      //       'id': '6',
-      //       'city': '大兴'
-      //     }, {
-      //       'id': '7',
-      //       'city': '昌平'
-      //     }
-      // ],
-      // 面积表头
-      // squareTitleArr: [
-      //     {
-      //       'id': 21,
-      //       'name': '20㎡以下',
-      //     }, {
-      //       'id': 22,
-      //       'name': '20-50㎡',
-      //     }, {
-      //       'id': 23,
-      //       'name': '50-100㎡',
-      //     }, {
-      //       'id': 24,
-      //       'name': '100-200㎡',
-      //     }, {
-      //       'id': 25,
-      //       'name': '200-500㎡',
-      //     }, {
-      //       'id': 26,
-      //       'name': '500㎡以上',
-      //     }
-      //   ], 
 
       // 投资机构
       investment_info1: true,
@@ -350,7 +323,6 @@ export default {
       ballWrap: false,
       // 弹窗文字
       ballWrapTxt: "",
-
     }
   },
   methods:{
@@ -358,19 +330,15 @@ export default {
       listData() {
           let _this = this
           let url = this.api + '/show/showInfo'
-          // console.log(url);
           axios(url,{
               method: 'get',
-              // data: obj
               params: {
                   type: "pc",
               }
           }).then(data => {
-              console.log(data);    
+              // console.log(data);    
               // 轮播图
               _this.picArr = data.data.data.imgUrl;
-              console.log(_this.picArr);
-
               // 委托转铺
               _this.turnShopObj = data.data.data.shopLineNum;
               // 委托找铺
@@ -390,12 +358,29 @@ export default {
               method: 'post',
           }).then(data => {
               // 列表商铺展示
+              // console.log("chaoyang")
               // console.log(data);
               _this.shopListArr = data.data.content;
-              // console.log(_this.shopListArr);
+              // _this.shopListArr.forEach(function (item,index) { 
+              //     let imgtype = item.img;
+              //     var ImgObj = new Image(); //判断图片是否存在  
+              //     ImgObj.src = item.img;
+              //     console.log(ImgObj.fileSize);//打印出来是undefined
+              //     //没有图片，则返回-1  
+              //     if (ImgObj.fileSize > 0 || (ImgObj.width > 0 && ImgObj.height > 0)) {
+              //         console.log('1');
+              //     } else {
+              //         console.log('2');
+              //         _this.shopListArr[index].img = 'https://youpu-global.oss-cn-beijing.aliyuncs.com/shop_default.jpg';                     
+              //     }
+              // })
           }).catch(err => {
               console.log(err)
           });
+      },
+
+      imgError(item) {
+          item.img = require('./images/err.png');
       },
 
       // 区域
@@ -403,16 +388,29 @@ export default {
           this.tab1 = id;
           let _this = this;
           this.isActive = true;
-          let url =  this.api + '/shop/getSearch'
+          let url =  this.api + '/shop/getShopListPC'
           axios(url,{
               method: 'post',
               params: {
-                  search: city,
+                  pageNumber: 0,
+                  pageSize: 10,
+                  businessCircleId: id
               }
           }).then(data => {
               // 列表商铺展示
-              // console.log(data);
               _this.areaShopArr = data.data.content;
+              console.log(_this.areaShopArr);
+              // _this.areaShopArr.forEach(function (item,index) {   
+              //     var ImgObj = new Image(); //判断图片是否存在  
+              //     ImgObj.src = item.img;
+              //     if (ImgObj.fileSize > 0 || (ImgObj.width > 0 && ImgObj.height > 0)) {
+                      
+              //     } else {
+              //         console.log('区域2');
+              //         _this.areaShopArr[index].img = 'https://youpu-global.oss-cn-beijing.aliyuncs.com/shop_default.jpg';                     
+              //     }
+              // })
+
           }).catch(err => {
               console.log(err)
           });
@@ -424,7 +422,6 @@ export default {
           let _this = this;
           // this.isActive = true;
           let url =  this.api + '/shop/getShopListPC'
-          // let url = "http://192.168.1.138:8080/shop/getShopList"
           axios(url,{
               method: 'post',
               params: {
@@ -434,16 +431,24 @@ export default {
               
           }).then(data => {
               // 列表商铺展示
-
               // console.log(data);
               _this.squareTitleArr = data.data.mg;
               _this.searchCity = data.data.areas;
-              // console.log(_this.searchCity);
 
+              // _this.searchCity.forEach(function (item,index) {   
+              //     var ImgObj = new Image(); //判断图片是否存在  
+              //     ImgObj.src = item.img;
+              //     console.log(ImgObj.fileSize);//打印出来是undefined
+              //     //没有图片，则返回-1  
+              //     if (ImgObj.fileSize > 0 || (ImgObj.width > 0 && ImgObj.height > 0)) {
+              //         console.log('1');
+              //     } else {
+              //         console.log('2');
+              //         _this.searchCity[index].img = 'https://youpu-global.oss-cn-beijing.aliyuncs.com/shop_default.jpg';                     
+              //     }
+              // })
 
               _this.monthRent = data.data.prices[1].childList;
-              // console.log("月租金");
-              // console.log(_this.monthRent);
           }).catch(err => {
               console.log(err)
           });
@@ -466,7 +471,6 @@ export default {
               }
           }).then(data => {
               // 列表商铺展示
-              // console.log(data);
               _this.squareShopArr = data.data.content;
           }).catch(err => {
               console.log(err)
@@ -476,7 +480,6 @@ export default {
       // 委托找铺
       seekBtn(){
           this.entrust("1");
-
       },
       
       // 委托转铺
@@ -511,7 +514,8 @@ export default {
                   method: 'post',
                   params: {
                       account: _this.telVal,
-                      type: type
+                      type: type,
+                      source: "3"
                   }
               }).then(data => {
                 // console.log(data);
@@ -608,11 +612,9 @@ export default {
       },
 
       // 点击轮播图 跳转详情页
-      goNewInfo(id,type) {
-          // alert(id);
-          // window.open("newsDetail.html?id=" + id);
-          // alert(type);
+      goNewInfo(id,type,url) {        
           if(type == true){
+              // window.location.href = url;
               window.location.href = "turnShop.html";
           }else{
               window.location.href = "newsDetail.html?id=" + id;
@@ -653,9 +655,9 @@ export default {
           return -1;//不是ie浏览器
         }
       }
-
   },
   created() { 
+      this.telVal = window.localStorage.getItem("iphone"); 
 
       this.isIEVersion();
 
@@ -668,7 +670,7 @@ export default {
       let defaultCity = "朝阳";
       let defaultId = "0"
       // console.log("初始化");
-      this.areaShopList("朝阳","0");
+      this.areaShopList("朝阳","122");
 
       // 面积
       // let squareId = "21"
@@ -682,23 +684,27 @@ export default {
 
 <style lang="scss" type="text/scss" scoped>
 *{padding: 0; margin: 0;}
-html{font-weight: "微软雅黑";}
+html{font-family: "KaiGenGothicSC-Light";}
 img{border: none;}
 input::-webkit-input-placeholder {
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input::-moz-placeholder{   /* Mozilla Firefox 19+ */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 /*清除浮动代码*/
 .clearfloat:after {
@@ -776,6 +782,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                       font-size: 16px;
                       margin-left: 6px;
                       margin-bottom: 6px;
+                      font-family: "KaiGenGothicSC-Light";
                     }
                     ul{
                         width: 100%;
@@ -788,6 +795,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                             display: inline-block;
                             font-size: 14px;
                             cursor: pointer;
+                            font-family: "KaiGenGothicSC-Light";
                             &:hover {
                                 color: #E8584F;
                             }  
@@ -801,65 +809,94 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 /*标题-公用样式*/
 .head_title{
-    width: 100%;
-    height: 180px;
+    width: 1200px;
+    margin: 0 auto;
+    height: 155px;
     text-align: center;
+    div{
+      height: 56px;
+      width: 1200px;
+      padding-top: 45px;
+      i{
+          width: 486px;
+          img{
+              display: inline-block;
+          }
+      }    
+      .line-left{         
+          float: left;    
+      }
+      .line-right{
+        float: right;
+      }
+    }
     h2{
+       width: 228px;
         color: #333;
         font-size: 34px;
         font-weight: 600;
-        padding-top: 80px;
-        margin-bottom: 22px;
+        float: left;
+        text-align: center;
+        font-family: "KaiGenGothicSC-Light";
     }
     h4{
         color: #333;
         font-size: 20px;
         font-weight: 400;
+        font-family: "KaiGenGothicSC-Light";
     }
 }
 /*更多-公用样式*/
 .more_wrap{
     width: 100%;
-    height: 40px;  
+    height: 42px;  
+    background: #fff;
+    padding-bottom: 45px;
     .more_box{
         width: 200px;
         height: 40px;
         line-height: 40px;
         text-align: center;
-        background: #F3F3F3;
+        /*background: #F3F3F3;*/
         margin: 0 auto;
         font-size: 16px;
-        color: #666;
-        border: 1px solid #ddd;
+        color: #E8584F;
+        border: 1px solid #E8584F;
         border-radius: 2px;
-        cursor: pointer;       
+        cursor: pointer;    
+        font-family: "KaiGenGothicSC-Light"; 
         span{
             font-size: 14px;
             margin-left: 8px;
             cursor: pointer;
+            color: #E8584F;
+            font-family: "KaiGenGothicSC-Light";
         }
     }
     :hover{
         border: 1px solid #E8584F;
-        color: #E8584F;
+        background: #E8584F;
+        color: #fff;
         span{
-            color: #E8584F;
+            color: #fff;
             border: none;
         }
     }
-
 }
+.shoplist_addBag .more_wrap{
+    background: #F5F6FC;
+    padding-bottom: 00px;
+}
+/*优选旺铺*/
+.shoplist_addBag{
+    width: 100%;
+    padding-bottom: 45px;
+}
+
 /*商铺列表-公共样式*/
 .shoplist_wrap{
     width: 1200px;
     margin: 0 auto;
-    /*display: flex;*/
-  /*  display:inline-flex;*/
-    /*flex-wrap: wrap;
-    -moz-justify-content: flex-start;
-    -ms-justify-content: flex-start;
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start; */ 
     .shoplist_dl{
         width: 274px;
         height: 300px;
@@ -868,7 +905,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
         margin-right: 34px;
         margin-bottom: 34px;
         box-sizing: border-box;  
-        float: left;  
+        float: left; 
+        background: #fff; 
         &:hover {
             width:274px; 
             height:300px;                  
@@ -888,7 +926,6 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
           h3{
               color: #333333;
               font-size: 18px;
-              /*margin: 10px 0px 15px 10px;*/
               margin: 10px;
           }
           p{
@@ -917,6 +954,12 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 
 /*我要委托*/
+.entrust_addBag{
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 45px;
+    background: #fff;
+}
 .entrust_wrap{
     width: 1200px;
     height: 185px;
@@ -1002,75 +1045,117 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 /*区域*/
 .area_wrap{
     width: 100%;
-    height: 450px;
-    background: #F7F7FA;
-    margin-top: 90px;
-    margin-bottom: 40px;
+    background: #fff;
+    padding-top: 45px;
     .area_nav{
-        width: 100%;
-        height: 108px;
+        width: 1200px;
+        height: 120px;
+        margin: 0 auto;
+        background: #fff;       
         ul{
-            width: 620px;
-            height: 108px;
-            line-height: 108px;
+            width: 1200px;
+            height: 60px;
             margin: 0 auto;
             text-align: center;
+            /*padding-top: 45px;*/
+            border-top: 2px solid #E8584F;
+            border-bottom: 1px solid #ddd;
             li{
-                width: 70px;
-                height: 30px;
-                background: #F7F7FA;
-                margin-right: 40px;
+                width: 200px;
+                height: 60px;
+                line-height: 60px;
                 text-align: center;
-                line-height: 30px;
-                color: #888;
+                color: #333;
+                font-size: 20px;
                 float: left;
                 list-style-type: none;
-                margin-top: 40px;
                 cursor: pointer;
+                border-left: 1px solid #ddd;
+                box-sizing: border-box;
+                font-family: "KaiGenGothicSC-Light";
                 &.on1{
                   background: #E8584F;
                   color: #fff;            
-              }          
+              }                      
+            }
+            .caret {
+                width: 200px;
+                height: 10px;
+                p{
+                    width: 0px;
+                    height: 0;
+                    margin-left: 2px;
+                    vertical-align: middle;
+                    border-top: 10px solid #E8584F;
+                    border-right: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                    line-height: 0px;
+                    margin-left: 100px;
+                    position: relative;
+                    left: -5px;
+                }
             }           
             :nth-child(6){
-              margin-right: 0px;
+              /*margin-right: 0px;*/
+              box-sizing: border-box;
+              border-right: 1px solid #ddd;
             }
         }
     }
 }
-
 /*面积*/
 .square_wrap{
     width: 100%;
-    height: 450px;
+    /*height: 450px;*/
     background: #fff;
-    margin-top: 90px;
-    margin-bottom: 40px;
+    /*margin-top: 90px;
+    margin-bottom: 40px;*/
+    padding-top: 45px;
     .square_nav{
         width: 100%;
         height: 108px;
+
         ul{
-            width: 956px;
-            height: 108px;
-            line-height: 108px;
+            width: 1200px;
+            height: 60px;
             margin: 0 auto;
             text-align: center;
+            /*padding-top: 45px;*/
+            border-top: 2px solid #E8584F;
+            border-bottom: 1px solid #ddd;
             li{
-                width: 126px;
-                height: 30px;
-                background: #fff;
-                margin-right: 40px;
+                width: 200px;
+                height: 60px;
+                line-height: 60px;
                 text-align: center;
-                line-height: 30px;
-                color: #888;
+                color: #333;
+                font-size: 20px;
                 float: left;
                 list-style-type: none;
-                margin-top: 40px;
                 cursor: pointer;
+                border-left: 1px solid #ddd;
+                box-sizing: border-box;
                 &.on2{
                   background: #E8584F;
                   color: #fff;            
               }          
+            }  
+            .caret {
+                width: 200px;
+                height: 10px;
+                p{
+                    width: 0px;
+                    height: 0;
+                    margin-left: 2px;
+                    vertical-align: middle;
+                    border-top: 10px solid #E8584F;
+                    border-right: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                    line-height: 0px;
+                    margin-left: 100px;
+                    position: relative;
+                    left: -5px;
+                }
             }           
             :nth-child(6){
               margin-right: 0px;
@@ -1079,6 +1164,11 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     }
 }
 /*投资机构*/
+.investment_wrap{
+    width: 100%;
+    background: #fff;
+    padding-bottom: 160px
+}
 .investment{
     width: 1200px;
     height: 388px;
@@ -1086,7 +1176,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     margin: 0 auto;
-    margin-bottom: 160px;
+    /*padding-bottom: 160px;*/
     ul{
         width: 826px;
         height: 195px;
@@ -1127,7 +1217,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
       color: #fff;
       line-height: 45px;
       font-weight: 500;
-      font-family: "微软雅黑";
+      font-family: "KaiGenGothicSC-Light";
     }
 
 }

@@ -2,7 +2,7 @@
     <div class="nav">
         <div class="nav_top">
             <dl>
-                <dt><a href="index.html"><img src="./images/up.png"></a></dt>
+                <dt><a href="index.html"><img src="./images/up1.png" class="upImg1"><img src="./images/up2.png" class="upImg2"></a></dt>
                 <dd><span>北京</span><img src="./images/locating.png"></dd>
             </dl>
             <ul>
@@ -14,7 +14,7 @@
                 <li><img src="./images/phone.png"><a href="appDownload.html" :class="{active: isActive6}">APP下载</a></li>
             </ul>
             <div class="user_login">
-                <p v-if="this.token"><img src="./images/user.png"><a href="mine.html" :class="{active: isActive8}">我的优铺</a><i></i></p>
+                <p v-if="this.token"><img src="./images/user.png"><a href="member.html" :class="{active: isActive8}">我的优铺</a><i></i></p>
                 <p v-else><img src="./images/user.png"><a href="login.html" :class="{active: isActive7}">用户登录</a><i></i></p>
                 <div class="info_tel"><img src="./images/tel.png">咨询热线4008988808<i></i></div>
                 <span><a href="http://youpu100.cn" target="_blank" style="color: #224E8F; font-weight: 500;">卖铺宝</a></span>
@@ -61,6 +61,30 @@ export default {
             this.isActive2 = true;
         } else if(filename.indexOf("newsDetail") != -1){
             this.isActive5 = true;
+        } else if(filename.indexOf("login") != -1){
+            this.isActive1 = false;
+        } else if(filename.indexOf("mine") != -1){
+            this.isActive1 = false;
+        } else if(filename.indexOf("shopMap") != -1){
+            this.isActive1 = false;
+        } else if(filename.indexOf("aboutUp") != -1){
+            this.isActive1 = false;
+        } else if(filename.indexOf("joinUp") != -1){
+          this.isActive1 = false;
+        }else if(filename.indexOf("collegeUp") != -1){
+          this.isActive1 = false;
+        }else if(filename.indexOf("contactUp") != -1){
+          this.isActive1 = false;
+        }else if(filename.indexOf("recruitUp") != -1){
+          this.isActive1 = false;
+        }else if(filename.indexOf("order") != -1){
+          this.isActive1 = false;
+        }else if(filename.indexOf("member") != -1){
+          this.isActive1 = false;
+        }else if(filename.indexOf("mine") != -1){
+          this.isActive1 = false;
+        }else if(filename.indexOf("pay") != -1){
+          this.isActive1 = false;
         }else{
             this.isActive1 = true;
         }
@@ -125,24 +149,38 @@ html{font-family: "微软雅黑"};
         margin: 0 auto;
         background: #fff;
         dl{
-            width: 320px;
+            width: 300px;
             height: 70px;
             float: left;
             dt{
-                width: 200px;
+                width: 186px;
                 height: 70px;
                 float: left;
-                img{
+                /*img{
                     width: 100%;
+                    position: relative;
+                    top: -1px;
+                }*/
+                .upImg1{
+                    width:80px;
+                    height: 26px;
+                    margin-right: 12px;
+                    position: relative;
+                    top: -1px;
+
+                }
+                .upImg2{
+                    width: 80px;
+                    height: 26px;
                     position: relative;
                     top: -1px;
                 }
             }
             dd{
-                width: 100px;
+                width: 80px;
                 height: 70px;
                 float: left;
-                margin-left: 16px;
+                /*margin-left: 16px;*/
                 span{
                     font-size: 16px;
                     color: #888;
@@ -173,16 +211,17 @@ html{font-family: "微软雅黑"};
                     position: relative;
                     top: -1px;
                 }
-              a {
-                color: #888;
-                text-decoration: none;
-                font-size: 16px;
-                /*设置导航动态样式*/
-                &.active{
-                  color: #224E8F;
-                  font-weight:bold;
+                a {
+                    color: #888;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-family: "KaiGenGothicSC-Light";
+                    /*设置导航动态样式*/
+                    &.active{
+                        color: #224E8F;
+                        font-weight:bold;
+                    }
                 }
-              }
             }
         }
         .user_login{
@@ -195,6 +234,7 @@ html{font-family: "微软雅黑"};
                 float: left;
                 color: #888;
                 font-size: 14px;
+                font-family: "KaiGenGothicSC-Light";
                 img{
                     margin-right: 4px;
                     position: relative;
@@ -216,6 +256,7 @@ html{font-family: "微软雅黑"};
                 float: left;
                 font-size: 14px;
                 color: #888;
+                font-family: "KaiGenGothicSC-Light";
                 img{
                     margin-right: 4px;
                     position: relative;
@@ -241,11 +282,5 @@ html{font-family: "微软雅黑"};
         }
     }
 }
-
-
-
-
-
-
 
 </style>

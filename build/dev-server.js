@@ -65,9 +65,11 @@ module.exports = app.listen(port, function (err) {
     console.log(err)
     return
   }
-  var uri = 'http://192.168.1.204:' + port
-  // var uri = "http://new.youpuchina.com"  //测试网址
-  //var uri = "http://www.youpuchina.com"  //正式网址
+
+  // var uri = 'http://192.168.1.215:' + port  //田
+  var uri = 'http://192.168.1.183:' + port  //闫
+
+  // var uri = "http://www.youpuchina.com"  //正式网址
   // console.log('Listening at ' + uri + '\n')
   opn(uri)
 })

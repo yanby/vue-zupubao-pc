@@ -4,7 +4,7 @@
     <div class="shopList w1200">
       <h2><span><a href="index.html">首页</a>><b @click="allRemove()">北京</b><i v-if="quyu">>{{quyu}}</i><i v-if="quyuChild">>{{quyuChild}}</i></span>
         <div class="search">
-          <input type="text" placeholder="区域/面积/租金/商铺编号" v-model="search" @keyup.enter="searchFun()"><button @click="searchFun()"></button>
+          <input type="text" placeholder="区域/商圈/业态/商铺编号" v-model="search" @keyup.enter="searchFun()"><button @click="searchFun()"></button>
         </div>
       </h2>
       <div class="search-list">
@@ -73,7 +73,7 @@
           <ul class="shop-left left">
             <li v-for="item in shopList" @click="goShopDetail(item.id)">
               <div class="img">
-                <img :src="item.img" alt="">
+                <img :src="item.img" alt="" :onerror="defaultImg">
               </div>
               <div class="txt">
                 <h5>{{item.title}}</h5>
@@ -117,6 +117,7 @@ export default {
     name: 'app',
     data(){
       return{
+        defaultImg: 'this.src="' + require('../index/images/err.png') + '"',
         areas : '',//区域
         areaChild: '',//区域子级
         yetai: '',//业态
@@ -157,27 +158,36 @@ export default {
         totalCount: 0,//铺源总数
         shopTags: "",//特色标签
         curPage: 0,
-        myTitle: "标题"
+        myTitle: "朝阳区",
+        Keywords: "",
+        monthlyRent: ""
       }
     },
+    // created(){
+    //   this.Keywords = "朝阳"
+    //   this.Description = "朝阳商铺出租"
+    // },
     // metaInfo(){
     //   return{
     //     title: this.myTitle, // set a title
-    //     meta: [{                 // set meta
-    //       name: 'Keywords',
-    //       content: 'My Example App'
-    //     }]
+    //     meta: [
+    //       {                 // set meta
+    //         name: 'Keywords',
+    //         content: this.Keywords
+    //       },
+    //       {                 // set meta
+    //         name: 'Description',
+    //         content: this.Description
+    //       },
+    //     ]
     //   }
-    //
     // },
     components: {
       Nav,
       Navbar,
       Footer
     },
-    created(){
 
-    },
     mounted(){
       //如果是从商铺列表进来烌
       this.search = getQueryString("search");
@@ -286,6 +296,8 @@ export default {
             if(this.shopList.length == 0){
               this.pageList = false;
               $(".shop-left").css({"background":"#fff"})
+            }else{
+              $(".shop-left").css({"background":"none"})
             }
             if(this.key == "areaId"){
               this.mianji.forEach(function (item,index) {
@@ -356,6 +368,8 @@ export default {
             if(this.shopList.length == 0){
               this.pageList = false;
               $(".shop-left").css({"background":"#fff"})
+            }else{
+              $(".shop-left").css({"background":"none"})
             }
           })
           .catch(err =>{
@@ -602,6 +616,8 @@ export default {
             if(this.shopList.length == 0){
               this.pageList = false;
               $(".shop-left").css({"background":"#fff"})
+            }else{
+              $(".shop-left").css({"background":"none"})
             }
           })
           .catch(err =>{
@@ -638,6 +654,8 @@ export default {
             if(this.shopList.length == 0){
               this.pageList = false;
               $(".shop-left").css({"background":"#fff"})
+            }else{
+              $(".shop-left").css({"background":"none"})
             }
           })
           .catch(err =>{

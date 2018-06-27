@@ -2,21 +2,7 @@
 <div id="app">
     <Nav></Nav>
     <div class="mine w1200 clearfix">
-      <div class="mine-left left">
-          <div class="mine-msg">
-            <div class="img"></div>
-            <p>{{iphone}}<span></span></p>
-            <div class="txt">
-              今日已查看 <span class="red">{{pvCount - numIndex}}</span> 套铺源 <br>(共10套/日)
-            </div>
-          </div>
-          <div class="mine-list">
-            <ul>
-              <li class="cur">我的收藏</li>
-              <li @click="btn()">退出登录</li>
-            </ul>
-          </div>
-      </div>
+      <Mine></Mine>
       <div class="mine-right right">
         <div class="noCollect" v-show="collect===0">
           <div class="wrap">
@@ -62,7 +48,9 @@ import 'common/css/reset.css';
 import Nav from 'components/Nav/Nav';
 import Footer from 'components/Footer/Footer';
 import Navbar from 'components/Navbar/Navbar';
+import Mine from 'components/Mine/Mine';
 import axios from 'axios'
+import $ from "common/js/jquery.min.js";
 import qs from 'qs'
 import {getQueryString,GetRequest,url} from 'common/js/common.js'
 export default {
@@ -70,12 +58,11 @@ export default {
     components: {
       Nav,
       Footer,
-      Navbar
+      Navbar,
+      Mine
     },
     data (){
       return {
-        numIndex: 0,
-        pvCount: 10,//次数总数
         iphone: "",//手机号好
         collect: "",//判断有没有收藏
         shopList: "",//收藏列表
@@ -86,39 +73,9 @@ export default {
       }
     },
     mounted(){
-      this.iphoneFun()
-      this.init();//次数
       this.collectFun();//收藏列表
     },
     methods:{
-      iphoneFun(){
-        var str = localStorage.iphone;
-        this.iphone = str.substr(0,3)+"****"+str.substr(7);
-      },
-      init(){//次数
-        axios(this.changeData() + '/user/shopCheckedRecords',{
-          method: 'post',
-          params: {
-            account: localStorage.iphone,
-            shopId: '0',
-            type: "0",
-            token: localStorage.token,
-            page: 0
-          }
-        })
-          .then(res => {
-            console.log(res)
-            if(res.data.code == "200"){
-              this.pvCount = localStorage.pvCount
-              this.numIndex = res.data.count;
-            }else if(res.data.code == 401){
-              localStorage.clear();
-            }
-          })
-          .catch(err =>{
-            console.log(err)
-          })
-      },
       collectFun(){//收藏列表
         axios(this.changeData() + '/shopCollection/getShopCollection',{
           method: 'post',
@@ -204,23 +161,6 @@ export default {
       goShopDetail(id){//跳转到详情页面
         window.location.href = "shopDetail.html?shopId=" + id;
       },
-      btn(){
-        var that = this;
-        this.$confirm('确认要退出登录么？', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning',
-          center: true
-        }).then(() => {
-          that.$layer.msg("退出成功")
-          setTimeout(function(){
-            window.localStorage.clear();
-            window.location.href = "index.html";
-          },1000)
-        }).catch(() => {
-          that.$layer.msg("已取消")
-        });
-      },
       handleCurrentChange(val){
         this.page = val - 1;
         var data = {
@@ -228,8 +168,8 @@ export default {
           token: localStorage.token,
           page: this.page
         }
-        $('html , body').animate({scrollTop: 100},1000);
-        axios(this.changeData() + 'shopCollection/getShopCollection',{
+        $('html , body').animate({scrollTop: 100},100);
+        axios(this.changeData() + '/shopCollection/getShopCollection',{
           method: 'post',
           params: {
             userId: localStorage.iphone,
@@ -244,11 +184,23 @@ export default {
           .catch(err =>{
             console.log(err)
           })
-      }
+      },
+      // 判断是否登录
+      isLogin() {
+        let _this = this;
+        if(localStorage.token == null){
+            _this.$layer.msg("请先登陆");
+            setTimeout(() => {
+                window.location.href='login.html'
+            }, 2000);
+          }
+        }
     },
     created() {
         // 保存全局地址
         this.api = url;
+        // 调用判断是否登录方法
+        this.isLogin();
 
         // console.log(localStorage.token);
 

@@ -14,11 +14,6 @@
                 <div class="seek_right">
                     <h1>在线委托找铺平均<span>28</span>天成功开店</h1>
                     <h3>专属选址顾问竭诚为您服务</h3>
-                    <!-- <ul>
-                        <li><img src="./images/quan.png"></li>
-                        <li><img src="./images/zhen.png"></li>
-                        <li><img src="./images/xiang.png"></li>
-                    </ul> -->
                     <dl>
                         <dt>
                             <div>全</div>
@@ -53,15 +48,6 @@
 
         <div class="seek_present">
             <h2>委托找铺六大安心服务承诺</h2>
-            <!-- <ul>
-                <li><img src="./images/li1.png"></li>
-                <li><img src="./images/li2.png"></li>
-                <li><img src="./images/li3.png"></li>
-                <li><img src="./images/li4.png"></li>
-                <li><img src="./images/li5.png"></li>
-                <li><img src="./images/li6.png"></li>
-            </ul> -->
-
             <dl>
                 <dt><img src="./images/li1.png"></dt>
                 <dd>
@@ -181,23 +167,16 @@ export default {
                     method: 'post',
                     params: {
                         account: _this.telVal,
-                        type: "1"
+                        type: "1",
+                        source: "3"
                     }
                 }).then(data => {
                     console.log(data);
                     if(data.data.code == 200 && data.data.flag == "success"){
                         _this.$layer.msg(data.data.msg);
-                        // this.$message({
-                        //     message: data.data.msg,
-                        //     type: 'success'
-                        // });
                         _this.telVal = "";
                     } else if(data.data.code == 200){
                         _this.$layer.msg(data.data.msg);
-                       // this.$message({
-                       //      message: data.data.msg,
-                       //      // type: 'success'
-                       //  });
                         _this.telVal = "";
                     }
                 }).catch(err => {
@@ -206,7 +185,8 @@ export default {
             }
         },  
     },
-    created() {       
+    created() { 
+        this.telVal = window.localStorage.getItem("iphone");     
         // 保存全局地址
         this.api = url;
         // 接口调用
@@ -220,21 +200,26 @@ export default {
 input::-webkit-input-placeholder{
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input::-moz-placeholder{   /* Mozilla Firefox 19+ */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     color: #ccc;
     font-size: 14px;
+    font-family: "KaiGenGothicSC-Light";
 }
 .seek_wrap{
     width: 100%;
+    font-family: "KaiGenGothicSC-Light";
 }
 .seek_box{
     width: 100%;
@@ -260,6 +245,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 font-size: 24px;
                 text-align: center;
                 font-weight: 600;
+                font-family: "KaiGenGothicSC-Light";
             }
             input{
                 height: 46px;
@@ -268,14 +254,17 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 border-radius: 4px;
                 margin-bottom: 26px;
                 padding-left: 8px;
+                font-family: "KaiGenGothicSC-Light";
             }
             h5{
                 color: #666;
                 margin-top: 38px;
                 margin-bottom: 8px;
                 font-size: 16px;
+                font-family: "KaiGenGothicSC-Light";
                 span{
                     color: #E8584F;
+                    font-family: "KaiGenGothicSC-Light";
                 }
             }
             .submit_btn{
@@ -288,12 +277,14 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 text-align: center;
                 margin-bottom: 40px;
                 cursor: pointer;
+                font-family: "KaiGenGothicSC-Light";
             }
             h6{
                 text-align: center;
                 color: #333;
                 font-size: 16px;
                 font-weight: 400;
+                font-family: "KaiGenGothicSC-Light";
             }
         }
     }
@@ -304,42 +295,31 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     float: right;
     margin-top: 80px;
     color: #fff;
+    font-family: "KaiGenGothicSC-Light";
     h1{
         font-size: 48px;
         color: #fff;
         font-weight: 600;
+        font-family: "KaiGenGothicSC-Light";
         span{
             color: #E8584F;
+            font-family: "KaiGenGothicSC-Light";
         }
     }
     h3{
         font-size: 22px;
         text-align: center;
-        margin-top: 40px;
-        font-weight: 300;
+        margin-top: 30px;
         margin-bottom: 52px;
+        font-family: "KaiGenGothicSC-Light";
     }
-    /*ul{
-        margin-top: 60px;
-        li{
-            float: left;
-            margin-right: 20px;
-        }
-        :nth-child(3){
-            margin-right: 0px;
-        }
-    }*/
-
     dl{
         width: 220px;
         height: 268px;
         float: left;
-        /*background: pink;*/
         margin-right: 20px;
-        /*text-align: center;*/
         dt{
             width: 62px;
-            /*height: 62px;*/
             border-radius: 50%;
             color: #fff;
             font-size: 34px;
@@ -354,6 +334,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 float: left;
                 width: 20px;
                 margin-top: 3px;
+                font-family: "KaiGenGothicSC-Light";
             }
             li{
                 float: left;
@@ -364,12 +345,11 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 margin-bottom: 15px;
                 line-height: 24px;
                 font-weight: 300;
+                font-family: "KaiGenGothicSC-Light";
             }
         }
 
     }
-
-
 }
 .seek_present{
     width: 1200px;
@@ -382,6 +362,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
         margin-bottom: 44px;
         text-align: center;
         font-weight: 600;
+        font-family: "KaiGenGothicSC-Light";
     }
     dl{      
         width:551px; height:134px;                   
@@ -408,10 +389,12 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                 margin-top: 35px;
                 margin-bottom: 14px;
                 font-weight: 600;
+                font-family: "KaiGenGothicSC-Light";
             }
             p{
                 color: #000000;
                 font-size: 14px;
+                font-family: "KaiGenGothicSC-Light";
             }
         }
     }

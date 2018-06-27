@@ -1,7 +1,5 @@
 
 #app{
-  font:14px/150% "Microsoft YaHei","\5b8b\4f53";
-  background: #fbfbfb;
   .mine{
     margin-top: 20px;
     padding-bottom: 60px;
@@ -49,9 +47,15 @@
             font-size: 16px;
             color: #888;
             cursor: pointer;
+            a{
+              color: #888;
+            }
             &.cur{
               background: #224E8F;
               color: #fff;
+              a{
+                color: #fff;
+              }
             }
           }
         }
@@ -61,7 +65,7 @@
       width: 940px;
       .noCollect{
         width: 940px;
-        min-height: 470px;
+        min-height: 550px;
         background: #fff;
         overflow: hidden;
         .wrap{
@@ -86,7 +90,7 @@
       .collect{
         padding: 0 42px;
         background: #fff;
-        min-height: 470px;
+        min-height: 550px;
         h3{
           font-size: 24px;
           //font-weight: bold;

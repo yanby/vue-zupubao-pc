@@ -12,8 +12,9 @@ exports.install = function (Vue, options) {
 	    // alert(curWwwPath+'------'+pathName+'------'+localhostPatht+'--------'+projectName+'----------'+hostname+'-------'+protocol);
 
 	    //return (protocol+'//'+hostname);
-        return "http://api.zpb.youpuchina.com"; //
-       //return "http://xin.youpuchina.com/"; // 贾小健
-       // return "http://192.168.1.55:8080"
+        return "http://api.zpb.youpuchina.com"; // 正式服务器
+        //return "http://api.zpb.youpuchina.com"; // 正式服务器s
+       // return "http://api.zpb.yingshangchina.com" // 测试服务器
+
     };
 };

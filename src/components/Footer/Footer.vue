@@ -28,7 +28,6 @@
                   <dd>成功开店</dd>
                 </dl>
             </div>
-           
         </div>
         <div class="wrap">
             <div class="wrap_box">
@@ -42,11 +41,11 @@
               </div> -->
 
               <div class="about_up">
-                  <a href="aboutUp.html?id=1">关于优铺</a><a href="aboutUp.html?id=2">加盟优铺</a><a href="http://www.zhongjinglianmeng.com" target="_blank">中经联盟</a>
-                  <a href="aboutUp.html?id=4">联系优铺</a><a href="aboutUp.html?id=5">优铺招聘</a><a href="shopMap.html">网站地图</a>
+                  <a href="aboutUp.html">关于优铺</a><a href="joinUp.html">加盟优铺</a><a href="http://www.zhongjinglianmeng.com" target="_blank">中经联盟</a>
+                  <a href="contactUp.html">联系优铺</a><a href="recruitUp.html">优铺招聘</a><a href="shopMap.html">网站地图</a>
               </div>
               <div class="product">
-                  优铺控股旗下产品:&nbsp;<a href="/module/index.html">租铺宝</a><a href="http://youpu100.cn/" target="_blank">卖铺宝</a><a href="aboutUp.html?id=3">优铺商学院</a>
+                  优铺控股旗下产品:&nbsp;<a href="/module/index.html">租铺宝</a><a href="http://youpu100.cn/" target="_blank">卖铺宝</a><a href="collegeUp.html">优铺商学院</a>
               </div>
 
               <div class="youpu_code">
@@ -63,8 +62,8 @@
               <div class="copyright">
                   <p>版权所有：北京优铺网络科技有限公司  Copyright 2016 Beijing Youpu Network Technology Co., Ltd</p>
                   <p>京ICP备16035060号 客服电话：4008988808</p>
-              </div> 
-            </div>           
+              </div>
+            </div>
         </div>
     </div>
 </template>
@@ -142,11 +141,11 @@ export default {
         // let url = "http://192.168.1.138:8080/shop/getShopList"
         let url =  this.api + '/shop/getShopListPC'
         axios(url,{
-            method: 'post', 
+            method: 'post',
             params: {
                 pageNumber: 0,
                 pageSize: 4
-            }            
+            }
         }).then(data => {
             // 列表商铺展示
             // console.log(data);
@@ -165,7 +164,7 @@ export default {
     // 保存全局地址
     this.api = url;
     this.squareList();
-    
+
   }
 }
 </script>
@@ -199,9 +198,10 @@ export default {
                 float: left;
                 margin-right: 22px;
                 margin-bottom: 16px;
-                font-size: 12px;     
+                font-size: 12px;
                 color: #fff;
                 cursor: pointer;
+                font-family: "KaiGenGothicSC-Light";
                 :hover{
                     color: #E8584F;
                 }
@@ -215,40 +215,45 @@ export default {
             a{
               margin-right: 20px;
               font-size: 14px;
+              font-family: "KaiGenGothicSC-Light";
             }
         }
         .about_up{
-            margin-top: 10px;
+            margin-top: 16px;
             a{
               margin-right: 40px;
               font-size: 14px;
+              font-family: "KaiGenGothicSC-Light";
             }
-            
         }
         .product{
             color: #fff;
             margin-top: 10px;
+            font-size: 14px;
+            font-family: "KaiGenGothicSC-Light";
             a{
                 margin-right: 40px;
                 font-size: 14px;
+                font-family: "KaiGenGothicSC-Light";
             }
         }
         .copyright{
             width: 1200px;
-            margin-top: 30px;
+            margin-top: 40px;
             border-top: 1px solid #444;
             padding-top: 14px;
             p{
                 color: #fff;
                 margin-top: 10px;
                 font-size: 12px;
+                font-family: "KaiGenGothicSC-Light";
             }
         }
         /*二维码*/
         .youpu_code{
             height: 110px;
             width: 280px;
-            margin-top: 30px;
+            margin-top: 36px;
             position: absolute;
             right: 0px;
             top: 64px;
@@ -260,6 +265,7 @@ export default {
                     font-size: 12px;
                     margin-top: 8px;
                     color: #fff;
+                    font-family: "KaiGenGothicSC-Light";
                 }
             }
         }
@@ -267,13 +273,13 @@ export default {
 }
 a{
     color: #fff;
-    font-family: "微软雅黑";
+    font-family: "KaiGenGothicSC-Light";
     font-weight: 400;
 }
 .service{
     width: 100%;
     height: 220px;
-    background: #F7F7FA;
+    background: #F9FCFB;
     padding-top: .1px;
     h2{
         font-size: 34px;
@@ -285,7 +291,7 @@ a{
     div{
         width: 1200px;
         height: 180px;
-        margin: 0 auto;      
+        margin: 0 auto;
         dl{
           float: left;
           width: 60px;
@@ -312,6 +318,6 @@ a{
     margin-right: 0px!important;
 }
 a:hover{
-    color: #E8584F;                
+    color: #E8584F;
 }
 </style>

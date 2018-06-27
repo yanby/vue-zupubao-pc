@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 .shop-left li:hover {
-  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 .shop-left li .img {
   width: 218px;
@@ -56,7 +56,7 @@
   border: 1px solid #64ABFF;
 }
 .shop-left li .price {
-  width: 140px;
+  width: 160px;
   height: 164px;
   float: right;
 }
@@ -65,7 +65,7 @@
   margin-bottom: 14px;
 }
 .shop-left li .price p span {
-  font-size: 30px;
+  font-size: 24px;
   color: #D73D2F;
   font-weight: bold;
 }

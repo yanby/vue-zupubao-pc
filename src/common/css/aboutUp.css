@@ -1,7 +1,4 @@
-#app {
-  font: 14px/150% "Microsoft YaHei","\5b8b\4f53";
-  background: #fbfbfb;
-}
+@charset "UTF-8";
 #app .aboutUp .crumbs {
   font-size: 14px;
   color: #898989;
@@ -31,11 +28,20 @@
   cursor: pointer;
   border-bottom: 1px solid #eaeaea;
 }
+#app .aboutUp .about-content .about-left ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
 #app .aboutUp .about-content .about-left ul li:hover {
   color: #224E8F;
 }
 #app .aboutUp .about-content .about-left ul li.cur {
   background: #224E8F;
+  color: #fff;
+}
+#app .aboutUp .about-content .about-left ul li.cur a {
   color: #fff;
 }
 #app .aboutUp .about-content .about-left ul li b {
@@ -160,12 +166,22 @@
   color: #333;
   margin: 38px 0 20px;
 }
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt h2 span {
+  font-weight: bold;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt h4 {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt h4:nth-of-type(2) {
+  padding-top: 15px;
+}
 #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt p {
-  text-indent: 2em;
   line-height: 30px;
 }
-#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt p:nth-of-type(2) {
-  margin: 17px 0;
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .chuangshi .chuangshi-msg .txt p span {
+  font-family: "微软雅黑";
 }
 #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(1) .yewu h3 {
   height: 60px;
@@ -549,9 +565,36 @@
 #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shouyi .shouyi-list:nth-of-type(9) .img {
   background: url("../images/aboutUp/shangshi.png") no-repeat;
 }
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .zpb-biaozhun, #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .mpb-biaozhun {
+  padding: 0 20px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .zpb-biaozhun h4, #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .mpb-biaozhun h4 {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  padding: 50px 0 40px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .zpb-biaozhun .img, #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .mpb-biaozhun .img {
+  width: 865px;
+  height: 147px;
+  margin: 0 auto;
+  background: url("../images/aboutUp/zpb-jiameng.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .mpb-biaozhun .img {
+  border-bottom: 1px solid #eaeaea;
+  height: 288px;
+  background: url("../images/aboutUp/mpb-jiameng.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .shoufei {
+  width: 886px;
+  height: 500px;
+  margin: 30px auto;
+  background: url("../images/aboutUp/shoufei.png") no-repeat;
+}
 #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .rexian {
   padding: 30px 0 60px;
   text-align: center;
+  border-top: 1px solid #eaeaea;
 }
 #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(2) .jiameng .rexian p {
   font-size: 16px;
@@ -763,6 +806,24 @@
   width: 848px;
   height: 516px;
   background: url("../images/aboutUp/table2.png") no-repeat;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .zpb h4, #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .mpb h4 {
+  padding: 40px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .zpb .img, #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .mpb .img {
+  width: 848px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../images/aboutUp/shoufei.png") no-repeat;
+  -webkit-background-size: 848px 500px;
+  background-size: 848px 500px;
+}
+#app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .mpb .img {
+  height: 243px;
+  background: url("../images/aboutUp/mpb-jiameng.png") no-repeat;
 }
 #app .aboutUp .about-content .about-right .about-right-ul li:nth-of-type(3) .xueyuan .shoufei .shoufei-msg {
   width: 818px;
